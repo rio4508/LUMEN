@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMEN — Curator Telemetry & Moderation Terminal</title>
+
+  <!-- Google Fonts: Inter, Playfair Display, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Material Symbols Outlined -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+  <!-- Midnight & Champagne Design System -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <style>
+    .flex { display: flex; }
+    .flex-col { flex-direction: column; }
+    .items-center { align-items: center; }
+    .justify-between { justify-content: space-between; }
+    .justify-center { justify-content: center; }
+    .gap-2 { gap: 0.5rem; }
+    .gap-3 { gap: 0.75rem; }
+    .gap-4 { gap: 1rem; }
+    .gap-6 { gap: 1.5rem; }
+    .gap-8 { gap: 2rem; }
+    .grid { display: grid; }
+    .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+    @media (min-width: 640px) {
+      .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .sm\:flex-row { flex-direction: row; }
+    }
+    @media (min-width: 1024px) {
+      .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .lg\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+      .lg\:col-span-8 { grid-column: span 8 / span 8; }
+      .lg\:col-span-4 { grid-column: span 4 / span 4; }
+    }
+    .w-full { width: 100%; }
+    .h-full { height: 100%; }
+    .hidden { display: none !important; }
+    .relative { position: relative; }
+    .rounded-xl { border-radius: 0.75rem; }
+    .rounded-2xl { border-radius: 1rem; }
+    .rounded-full { border-radius: 9999px; }
+  </style>
+</head>
+<body class="font-sans">
+
+  <!-- Top Admin Navigation -->
+  <header class="header-nav">
+    <div class="container-max flex justify-between items-center" style="height: 4.75rem;">
+      <div class="flex items-center gap-4">
+        <a href="/" class="flex items-center gap-3" style="text-decoration: none; color: inherit;">
+          <div class="rounded-full flex items-center justify-center" style="width: 2.25rem; height: 2.25rem; border: 1px solid rgba(212, 175, 55, 0.4); background: rgba(212, 175, 55, 0.08);">
+            <span class="material-symbols-outlined" style="color: var(--champagne-300); font-size: 1.2rem;">terminal</span>
+          </div>
+          <div>
+            <span class="font-display" style="font-size: 1.25rem; font-weight: 700; color: var(--champagne-100); letter-spacing: 0.05em; display: block; line-height: 1;">LUMEN</span>
+            <span class="font-mono" style="font-size: 0.55rem; color: var(--champagne-300); letter-spacing: 0.15em; text-transform: uppercase;">Curator Terminal</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <div id="curator-status-badge" class="flex items-center gap-2 font-mono rounded-full" style="padding: 0.35rem 0.85rem; background: var(--midnight-850); border: 1px solid var(--midnight-border); font-size: 0.6875rem;">
+          <span class="rounded-full" style="width: 6px; height: 6px; background-color: var(--accent-emerald);"></span>
+          <span id="curator-node-label">CURATOR AUTHORIZED</span>
+        </div>
+
+        <a href="/" class="btn-outline font-mono" style="font-size: 0.75rem; padding: 0.5rem 1rem;">
+          <span class="material-symbols-outlined" style="font-size: 1rem;">arrow_back</span>
+          <span>Exit to Gallery</span>
+        </a>
+
+        <button id="admin-logout-btn" onclick="handleAdminLogout()" class="btn-outline font-mono hidden" style="font-size: 0.75rem; padding: 0.5rem 1rem; color: var(--accent-error); border-color: rgba(239, 68, 68, 0.3);">
+          Logout
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- CURATOR GATE (Shown when unauthorized)     -->
+  <!-- ========================================== -->
+  <div id="curator-auth-gate" class="auth-wrapper">
+    <div class="auth-card">
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <div class="rounded-full flex items-center justify-center" style="width: 3.5rem; height: 3.5rem; margin: 0 auto 1rem auto; border: 1px solid rgba(212, 175, 55, 0.4); background: rgba(212, 175, 55, 0.1);">
+          <span class="material-symbols-outlined" style="color: var(--champagne-300); font-size: 2rem;">security</span>
+        </div>
+        <h2 class="font-display" style="font-size: 1.75rem; font-weight: 700; color: var(--champagne-100);">Curator Clearance Required</h2>
+        <p class="font-sans" style="font-size: 0.8125rem; color: var(--text-secondary); margin-top: 0.35rem;">
+          Telemetry administration requires verified server-side Curator credentials.
+        </p>
+      </div>
+
+      <div id="gate-error-banner" class="hidden glass-panel" style="padding: 0.75rem; border-color: rgba(239, 68, 68, 0.4); background: var(--accent-error-bg); color: var(--accent-error); font-size: 0.8125rem; margin-bottom: 1rem;">
+      </div>
+
+      <form onsubmit="handleGateLogin(event)" style="display: flex; flex-direction: column; gap: 1rem;">
+        <div>
+          <label class="font-mono" style="font-size: 0.6875rem; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">CURATOR EMAIL</label>
+          <input type="email" id="gate-email" required value="curator@lumen.lens" class="form-input">
+        </div>
+        <div>
+          <label class="font-mono" style="font-size: 0.6875rem; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">CURATOR MASTER KEY</label>
+          <input type="password" id="gate-pass" required value="curator123" class="form-input">
+        </div>
+        <button type="submit" id="gate-submit-btn" class="btn-champagne" style="width: 100%; padding: 0.75rem; font-size: 0.8125rem; margin-top: 0.5rem;">
+          AUTHENTICATE CLEARANCE
+        </button>
+      </form>
+
+      <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--midnight-border); text-align: center;">
+        <span class="font-mono" style="font-size: 0.6875rem; color: var(--text-muted);">PRESET CURATOR MASTER: curator@lumen.lens / curator123</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- CURATOR CONSOLE (Shown when authorized)    -->
+  <!-- ========================================== -->
+  <main id="curator-console-content" class="container-max hidden" style="padding-top: 2.5rem; padding-bottom: 4rem;">
+    
+    <!-- Title Banner -->
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4" style="padding-bottom: 1.5rem; border-bottom: 1px solid var(--midnight-border);">
+      <div>
+        <div class="flex items-center gap-2" style="margin-bottom: 0.25rem;">
+          <span class="material-symbols-outlined" style="color: var(--champagne-300); font-size: 1rem;">admin_panel_settings</span>
+          <span class="font-mono" style="font-size: 0.6875rem; color: var(--champagne-200); letter-spacing: 0.15em;">SERVER-SIDE AUTHORIZATION ACTIVE</span>
+        </div>
+        <h1 class="font-display" style="font-size: 2rem; font-weight: 700; color: var(--text-primary);">Curator Moderation Suite</h1>
+      </div>
+      <div class="flex items-center gap-3">
+        <button onclick="loadAdminStats(); loadAdminQueue(); loadAdminCategories(); loadAdminUsers();" class="btn-outline font-mono" style="font-size: 0.75rem; padding: 0.5rem 1rem;">
+          <span class="material-symbols-outlined" style="font-size: 1rem;">sync</span>
+          <span>Refresh All</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 4 Real Calculated Stat Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" style="margin-top: 2rem; margin-bottom: 2rem;">
+      
+      <div class="glass-panel" style="padding: 1.5rem;">
+        <div class="flex justify-between items-center">
+          <span class="font-mono" style="font-size: 0.6875rem; color: var(--text-muted);">TOTAL OPERATORS</span>
+          <span class="material-symbols-outlined" style="color: var(--champagne-300);">group</span>
+        </div>
+        <div style="margin-top: 1rem;">
+          <span id="stat-total-users" class="font-mono" style="font-size: 2rem; font-weight: 700; color: var(--text-primary);">0</span>
+          <p class="font-sans" style="font-size: 0.75rem; color: var(--accent-emerald); margin-top: 0.25rem;">Active in database</p>
+        </div>
+      </div>
+
+      <div class="glass-panel" style="padding: 1.5rem;">
+        <div class="flex justify-between items-center">
+          <span class="font-mono" style="font-size: 0.6875rem; color: var(--text-muted);">VERIFIED ARCHIVES</span>
+          <span class="material-symbols-outlined" style="color: var(--champagne-300);">photo_library</span>
+        </div>
+        <div style="margin-top: 1rem;">
+          <span id="stat-approved-photos" class="font-mono" style="font-size: 2rem; font-weight: 700; color: var(--text-primary);">0</span>
+          <p class="font-sans" style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">Calibrated & public</p>
+        </div>
+      </div>
+
+      <div class="glass-panel champagne-glow" style="padding: 1.5rem; border-color: rgba(212, 175, 55, 0.4);">
+        <div class="flex justify-between items-center">
+          <span class="font-mono" style="font-size: 0.6875rem; color: var(--champagne-300);">PENDING INGEST QUEUE</span>
+          <span class="material-symbols-outlined" style="color: var(--champagne-300);">pending_actions</span>
+        </div>
+        <div style="margin-top: 1rem;">
+          <span id="stat-pending-photos" class="font-mono" style="font-size: 2rem; font-weight: 700; color: var(--champagne-100);">0</span>
+          <p class="font-sans" style="font-size: 0.75rem; color: var(--champagne-200); margin-top: 0.25rem;">Awaiting curator review</p>
+        </div>
+      </div>
+
+      <div class="glass-panel" style="padding: 1.5rem;">
+        <div class="flex justify-between items-center">
+          <span class="font-mono" style="font-size: 0.6875rem; color: var(--text-muted);">CRITIQUE TELEMETRY</span>
+          <span class="material-symbols-outlined" style="color: var(--champagne-300);">rate_review</span>
+        </div>
+        <div style="margin-top: 1rem;">
+          <span id="stat-total-critiques" class="font-mono" style="font-size: 2rem; font-weight: 700; color: var(--text-primary);">0</span>
+          <p class="font-sans" style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">Logged critique notes</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 7-Day Ingestion Cadence & Taxonomy Control -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8" style="margin-bottom: 2.5rem;">
+      
+      <!-- Cadence Bar Graph (Calculated dynamically) -->
+      <div class="lg:col-span-8 glass-panel" style="padding: 1.5rem;">
+        <div class="flex justify-between items-center" style="margin-bottom: 1.5rem;">
+          <div>
+            <h3 class="font-display" style="font-size: 1.25rem; font-weight: 700;">Daily Ingestion Cadence</h3>
+            <p class="font-sans" style="font-size: 0.75rem; color: var(--text-muted);">Actual database uploads grouped across rolling 7 days</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="rounded-full" style="width: 8px; height: 8px; background: var(--champagne-300);"></span>
+            <span class="font-mono" style="font-size: 0.6875rem; color: var(--text-muted);">VERIFIED TELEMETRY</span>
+          </div>
+        </div>
+
+        <div id="cadence-bars-container" class="flex items-end justify-between gap-3" style="height: 11rem; padding-top: 1.5rem; border-bottom: 1px solid var(--midnight-border);">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="flex justify-between items-center font-mono" style="padding-top: 0.75rem; font-size: 0.6875rem; color: var(--text-muted);">
+          <span>DATA DRIVEN (REAL DB TIMESTAMPS)</span>
+          <span id="cadence-active-week">CALENDAR WEEK CALIBRATED</span>
+        </div>
+      </div>
+
+      <!-- Taxonomy Controller (Connected to Admin) -->
+      <div class="lg:col-span-4 glass-panel" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div class="flex justify-between items-center" style="margin-bottom: 1rem;">
+            <h3 class="font-display" style="font-size: 1.25rem; font-weight: 700;">Taxonomy Control</h3>
+            <span id="categories-count-badge" class="font-mono" style="font-size: 0.6875rem; color: var(--champagne-300);">9 ACTIVE</span>
+          </div>
+          <p class="font-sans" style="font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Register new focal tags into the global discovery taxonomy.
+          </p>
+          
+          <div class="flex gap-2" style="margin-bottom: 1rem;">
+            <input type="text" id="new-category-input" placeholder="e.g. Architectural Brutalism" class="form-input" style="font-size: 0.75rem;">
+            <button onclick="handleAddCategory()" class="btn-champagne" style="font-size: 0.75rem; padding: 0.5rem 0.85rem; flex-shrink: 0;">
+              ADD
+            </button>
+          </div>
+
+          <div id="admin-categories-list" class="custom-scroll" style="display: flex; flex-wrap: wrap; gap: 0.5rem; max-height: 10rem; overflow-y: auto;">
+            <!-- Categories rendered by JS -->
+          </div>
+        </div>
+
+        <div style="padding-top: 1rem; border-top: 1px solid var(--midnight-border); font-size: 0.6875rem; color: var(--text-dim);">
+          Categories instantly update both the public filter chips and the upload dropdown.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Moderation Pipeline Table -->
+    <div class="glass-panel overflow-hidden" style="margin-bottom: 2.5rem;">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4" style="padding: 1.5rem; border-bottom: 1px solid var(--midnight-border);">
+        <div>
+          <h3 class="font-display" style="font-size: 1.25rem; font-weight: 700;">Moderation Ingest Pipeline</h3>
+          <p class="font-sans" style="font-size: 0.75rem; color: var(--text-muted);">Real submissions awaiting verification</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="font-mono" style="font-size: 0.6875rem; color: var(--text-muted);">FILTER:</span>
+          <button id="q-btn-pending" onclick="filterQueue('pending')" class="cat-pill active">Pending</button>
+          <button id="q-btn-all" onclick="filterQueue('all')" class="cat-pill">All</button>
+          <button id="q-btn-rejected" onclick="filterQueue('rejected')" class="cat-pill">Rejected</button>
+        </div>
+      </div>
+
+      <div class="custom-scroll" style="overflow-x: auto;">
+        <table class="lumen-table">
+          <thead>
+            <tr>
+              <th>PREVIEW / EXIF</th>
+              <th>TITLE & LOCATION</th>
+              <th>CREATOR</th>
+              <th>STATUS</th>
+              <th style="text-align: right;">CURATOR ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody id="queue-tbody">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Curator & User Access Registry -->
+    <div class="glass-panel" style="padding: 1.5rem;">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4" style="margin-bottom: 1.5rem;">
+        <div>
+          <h3 class="font-display" style="font-size: 1.25rem; font-weight: 700;">Curator & Lens Registry</h3>
+          <p class="font-sans" style="font-size: 0.75rem; color: var(--text-muted);">Manage verified curator role grants and account access</p>
+        </div>
+        <div style="width: 18rem;">
+          <input type="text" id="user-search-input" oninput="handleUserSearch(this.value)" placeholder="Search operator handles..." class="form-input" style="font-size: 0.75rem;">
+        </div>
+      </div>
+
+      <div id="users-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+  </main>
+
+  <div id="toast-container"></div>
+
+  <!-- Admin Controller Script -->
+  <script src="/admin.js"></script>
+</body>
+</html>
