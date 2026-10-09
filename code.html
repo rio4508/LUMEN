@@ -1,0 +1,1927 @@
+<!DOCTYPE html><html class="" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>LUMEN — Optical Arts &amp; Cinematic Darkroom</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration Script verbatim from Design System -->
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"on-secondary-fixed": "#001b3d", "on-tertiary-fixed-variant": "#763400", outline: "#717785", "primary-fixed-dim": "#aac7ff", "surface-container-low": "#f1f3fc", "on-error": "#ffffff", "on-error-container": "#93000a", error: "#ba1a1a", "on-background": "#181c22", "outline-variant": "#c1c6d5", "inverse-primary": "#aac7ff", surface: "#f9f9ff", "tertiary-container": "#c05900", "surface-variant": "#e0e2eb", "surface-dim": "#d7dae3", "on-primary-fixed": "#001b3e", "on-tertiary": "#ffffff", "on-secondary-container": "#3f5881", "on-tertiary-fixed": "#321200", "on-primary-fixed-variant": "#00458d", background: "#f9f9ff", "surface-tint": "#005db8", "on-secondary": "#ffffff", "error-container": "#ffdad6", "on-primary": "#ffffff", "on-secondary-fixed-variant": "#2d476f", "primary-fixed": "#d6e3ff", "on-primary-container": "#000512", "secondary-fixed-dim": "#aec7f7", "tertiary-fixed-dim": "#ffb68c", "secondary-fixed": "#d6e3ff", "surface-container-high": "#e6e8f1", "on-tertiary-container": "#0d0300", secondary: "#465f88", primary: "#005cb8", "surface-container-lowest": "#ffffff", "surface-container-highest": "#e0e2eb", "inverse-on-surface": "#eef0fa", "tertiary-fixed": "#ffdbc9", "primary-container": "#1275e2", "on-surface": "#181c22", "secondary-container": "#b6d0ff", "surface-container": "#ebedf7", "surface-bright": "#f9f9ff", "on-surface-variant": "#414753", "inverse-surface": "#2d3037", tertiary: "#9a4600"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {"gutter-sm": "1rem", "space-xl": "2rem", margin: "1.5rem", "space-md": "1rem", "margin-sm": "1rem", "gutter-lg": "2.5rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin-lg": "4rem", "space-lg": "1.5rem", gutter: "1rem"}, fontFamily: {"headline-md": ["Playfair Display"], "display-hero": ["Playfair Display"], "body-md": ["Inter"], "body-lg": ["Plus Jakarta Sans"], "display-hero-mobile": ["Playfair Display"], "body-sm": ["Plus Jakarta Sans"], "headline-sm": ["Playfair Display"], "stat-md": ["JetBrains Mono"], "stat-lg": ["JetBrains Mono"], "label-caps": ["JetBrains Mono"], "headline-lg": ["Inter"], "headline-lg-mobile": ["Playfair Display"], "label-sm": ["Plus Jakarta Sans"], "label-md": ["Inter"], headline: ["Inter"], display: ["Inter"], body: ["Inter"], label: ["Inter"]}, fontSize: {"headline-md": ["28px", {lineHeight: "36px", letterSpacing: "0em", fontWeight: "500"}], "display-hero": ["64px", {lineHeight: "72px", letterSpacing: "-0.02em", fontWeight: "600"}], "body-md": ["16px", {lineHeight: "24px", fontWeight: "400"}], "body-lg": ["18px", {lineHeight: "28px", letterSpacing: "-0.005em", fontWeight: "400"}], "display-hero-mobile": ["36px", {lineHeight: "44px", letterSpacing: "-0.01em", fontWeight: "600"}], "body-sm": ["13px", {lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "400"}], "headline-sm": ["20px", {lineHeight: "28px", letterSpacing: "0.01em", fontWeight: "600"}], "stat-md": ["16px", {lineHeight: "22px", letterSpacing: "-0.02em", fontWeight: "500"}], "stat-lg": ["24px", {lineHeight: "32px", letterSpacing: "-0.03em", fontWeight: "700"}], "label-caps": ["11px", {lineHeight: "16px", letterSpacing: "0.08em", fontWeight: "600"}], "headline-lg": ["32px", {lineHeight: "40px", fontWeight: "600"}], "headline-lg-mobile": ["28px", {lineHeight: "36px", letterSpacing: "0em", fontWeight: "500"}], "label-sm": ["12px", {lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500"}], "label-md": ["14px", {lineHeight: "20px", fontWeight: "500"}]}}}};</script>
+<style>
+    /* Vignette and Darkroom Glow Rules */
+    body {
+      background: radial-gradient(circle at 50% 20%, rgba(13, 17, 23, 0.5) 0%, #07090d 95%);
+      min-height: 100vh;
+      color: #e2e2e8;
+    }
+    
+    .glass-frosted {
+      background: rgba(13, 17, 23, 0.68);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(244, 246, 250, 0.08);
+    }
+
+    .glass-frosted-heavy {
+      background: rgba(8, 10, 14, 0.88);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(244, 246, 250, 0.12);
+    }
+
+    .electric-glow {
+      box-shadow: 0 0 24px -4px rgba(60, 166, 255, 0.28), inset 0 0 12px 0 rgba(60, 166, 255, 0.1);
+    }
+
+    .gold-bloom {
+      box-shadow: 0 0 32px -6px rgba(245, 158, 11, 0.35), inset 0 0 16px 0 rgba(245, 158, 11, 0.12);
+    }
+
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: rgba(12, 14, 18, 0.6);
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: rgba(60, 166, 255, 0.3);
+      border-radius: 3px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: rgba(60, 166, 255, 0.6);
+    }
+
+    /* Skeleton Shimmer */
+    @keyframes skeletonGlow {
+      0% { opacity: 0.3; }
+      50% { opacity: 0.7; }
+      100% { opacity: 0.3; }
+    }
+    .skeleton-box {
+      animation: skeletonGlow 1.8s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-surface-container-lowest overflow-x-hidden" style="background: rgb(250, 248, 245); min-height: 100vh; color: rgb(24, 28, 34);">
+<!-- ========================================== -->
+<!-- TOP NAV BAR (Shared Component Anchor)      -->
+<!-- ========================================== -->
+<header class="docked full-width top-0 sticky z-50 bg-surface-container-lowest/80 backdrop-blur-md border-b border-outline-variant/30 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.7)]" style="background-color: rgba(250, 248, 245, 0.9); border-color: rgba(193, 198, 213, 0.5); box-shadow: rgba(0, 0, 0, 0.06) 0px 4px 20px -4px;">
+<div class="flex justify-between items-center w-full px-6 lg:px-16 max-w-[1600px] mx-auto h-20">
+<!-- Brand & Left Cluster -->
+<div class="flex items-center gap-8">
+<button class="flex items-center gap-3 group text-left focus:outline-none" onclick="switchView('gallery')">
+<div class="w-10 h-10 rounded-full border border-primary/40 flex items-center justify-center bg-surface-container-low group-hover:border-primary group-hover:shadow-[0_0_18px_rgba(60,166,255,0.4)] transition-all duration-300">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="lens_blur">lens_blur</span>
+</div>
+<div>
+<span class="font-headline-md text-headline-md font-semibold tracking-wider text-primary block leading-none">LUMEN</span>
+<span class="font-label-caps text-label-caps text-outline tracking-widest text-[9px]">DARKROOM OPTICS</span>
+</div>
+</button>
+<!-- Search Bar (on_left) -->
+<div class="hidden md:flex items-center relative w-64 lg:w-80">
+<span class="material-symbols-outlined absolute left-3 text-outline text-lg pointer-events-none" data-icon="search">search</span>
+<input class="w-full bg-surface-container-lowest/90 border border-outline-variant/50 focus:border-primary focus:ring-1 focus:ring-primary text-on-surface font-body-sm text-body-sm pl-10 pr-4 py-2 rounded-xl transition-all duration-300 focus:shadow-[0_0_14px_rgba(60,166,255,0.25)] placeholder:text-outline/70" id="global-search-input" oninput="handleSearch(this.value)" placeholder="Search telemetry, titles, lens..." type="text">
+<span class="hidden absolute right-3 text-outline hover:text-on-surface cursor-pointer text-xs font-label-caps text-label-caps" id="search-clear-btn" onclick="clearSearch()">ESC</span>
+</div>
+</div>
+<!-- Center Navigation Links & View Switcher -->
+<nav class="hidden lg:flex items-center gap-8">
+<button class="text-primary font-medium border-b-2 border-primary pb-1 font-body-md text-body-md transition-all" id="nav-gallery" onclick="switchView('gallery')">Discover</button>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors pb-1 font-body-md text-body-md" id="nav-galleries" onclick="switchView('gallery')">Galleries</button>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors pb-1 font-body-md text-body-md flex items-center gap-1.5" id="nav-leaderboard" onclick="switchView('leaderboard')">
+<span class="">Competitions</span>
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors pb-1 font-body-md text-body-md flex items-center gap-1" id="nav-admin" onclick="switchView('admin')">
+<span class="material-symbols-outlined text-sm" data-icon="terminal">terminal</span>
+<span class="">Exhibitions</span>
+</button>
+</nav>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center gap-3 lg:gap-5">
+<!-- Role Indicator Pill -->
+<div class="hidden sm:flex items-center bg-surface-container border border-outline-variant/40 rounded-full px-2.5 py-1">
+<span class="font-label-caps text-label-caps text-outline mr-2 text-[10px]">ROLE:</span>
+<button class="font-label-caps text-label-caps text-primary hover:text-primary-fixed transition-colors flex items-center gap-1" id="role-toggle-btn" onclick="toggleUserRole()">
+<span id="current-role-label" class="">Curator</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="swap_horiz">swap_horiz</span>
+</button>
+</div>
+<!-- Trailing Secondary: Curator Mode Quick Switch -->
+<button class="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-outline-variant/30 text-outline hover:text-primary hover:border-primary/40 font-label-caps text-label-caps transition-all duration-300" onclick="switchView('admin')">
+<span class="material-symbols-outlined text-sm" data-icon="tune">tune</span>
+<span class="">Curator Mode</span>
+</button>
+<!-- Trailing Primary Action: Upload Photo -->
+<button class="bg-primary-container text-surface-container-lowest font-medium font-body-md text-body-md px-4 py-2 rounded-xl flex items-center gap-2 hover:shadow-[0_0_20px_rgba(60,166,255,0.45)] active:scale-[0.98] transition-all duration-300" onclick="openUploadModal()">
+<span class="material-symbols-outlined text-lg" data-icon="add_a_photo">add_a_photo</span>
+<span class="font-semibold">Upload</span>
+</button>
+<!-- Action Icons -->
+<div class="flex items-center gap-2">
+<button class="w-9 h-9 rounded-xl flex items-center justify-center text-outline hover:text-primary hover:bg-surface-container-high transition-colors relative">
+<span class="material-symbols-outlined text-lg" data-icon="notifications">notifications</span>
+<span class="w-1.5 h-1.5 bg-primary-container rounded-full absolute top-2 right-2"></span>
+</button>
+<button class="w-9 h-9 rounded-xl flex items-center justify-center text-outline hover:text-primary hover:bg-surface-container-high transition-colors" onclick="switchView('leaderboard')">
+<span class="material-symbols-outlined text-lg" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<!-- Profile Avatar with gold rim indicator -->
+<div class="relative group cursor-pointer" onclick="switchView('auth')">
+<div class="w-10 h-10 rounded-full p-[2px] bg-gradient-to-tr from-tertiary-container via-primary-container to-secondary">
+<div class="w-full h-full rounded-full bg-surface-container-lowest overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Photographer avatar profile with gold rim indicator set against a deep obsidian darkroom background with subtle cyan lighting." id="header-user-avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdMP9DK2csuSCzUibNGrYdlhw5VnkCVTxdQcGb_wcHHQTAc7Fa8zkXtTWWos_wHfEJdGZPGc5jSTpLRBxsXAEqc33hBXbmRJv2UdW06_uKfBlLIDKuuyS8JILYbuqEM7b6TC12Mytd50bsO1CjKpP305IJ2SwTLbbnLTZlWLqZxRcioa7nXIMCPlR3kheUxXYMBdwkoACZrN_pP0TA9ZsiML2dQ8mBe_nZqe3KqkEJ6ieUczUpNpsO">
+</div>
+</div>
+<span class="w-3 h-3 bg-secondary rounded-full absolute bottom-0 right-0 border-2 border-surface-container-lowest" title="Curator Verified"></span>
+</div>
+</div>
+</div>
+</header>
+<!-- ========================================== -->
+<!-- MAIN APPLICATION CONTENT CONTAINER         -->
+<!-- ========================================== -->
+<main class="w-full min-h-[calc(100vh-160px)]" style="background-color: rgb(250, 248, 245);">
+<!-- ======================================== -->
+<!-- VIEW 1: USER GALLERY & HERO (Default)    -->
+<!-- ======================================== -->
+<div class="view-panel transition-opacity duration-300" id="view-gallery">
+<!-- HERO: MosaicBloom Canvas2D Engine Feature -->
+<section class="relative w-full overflow-hidden border-b border-outline-variant/20 bg-surface-container-lowest py-8 lg:py-16" style="background-color: rgb(245, 241, 234); border-color: rgba(113, 119, 133, 0.2);">
+<div class="max-w-[1600px] mx-auto px-6 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Editorial Meta Left -->
+<div class="lg:col-span-5 flex flex-col justify-center space-y-6 z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/40 w-fit">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="font-label-caps text-label-caps text-secondary tracking-widest text-[10px]">DARKROOM CURATION HIGHLIGHT</span>
+</div>
+<div class="space-y-3">
+<h1 class="font-display-hero text-headline-lg lg:text-display-hero text-on-surface font-semibold tracking-tight leading-none">
+                Mount Rainier <br>
+<span class="italic font-normal text-primary">Alpine Glow</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+                Captured during the 20-minute blue hour window over Paradise Meadows. Experience the interactive <span class="text-primary font-mono text-xs">MosaicBloom Engine</span>—hover over the frame to clear optical oscillation into pure resolution.
+              </p>
+</div>
+<!-- Photog Badge & Telemetry Bar -->
+<div class="glass-frosted p-4 rounded-xl flex flex-wrap items-center justify-between gap-4 border border-outline-variant/30">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-full border border-primary/50 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of lead curator and landscape photographer smiling softly under cool studio rim lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG78FWuxwp_XjBPWBoNKq-4rZ8j7iDvVnoZ6w4Wg5T0fPZI9smdff7s8zqhXXxH3e9Sza2zXEcN9Ev5FMMS9Sg7D7vup3xxlZcT8QddCYlV0P2CIC5SU3pyLpnrWZhe7sioXpdh4zbMA6k1cDW2ENC9NtmXdDfK5RmqVNwUNorn-5RhpaAxzsW-RIELefOvdd2pi7kK6mcXsNaRVe0ds2u_e3FZ79uKsJjSxduQamYNiW8XRjDdnGd">
+</div>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Elias Thorne</h4>
+<p class="font-label-caps text-label-caps text-outline text-[10px]">CASCADE RANGE • MASTER LENS</p>
+</div>
+</div>
+<!-- HUD Chips -->
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2 py-1 rounded bg-surface-container-high font-stat-md text-label-caps text-primary border border-primary/20">50MM F/1.2</span>
+<span class="px-2 py-1 rounded bg-surface-container-high font-stat-md text-label-caps text-on-surface-variant border border-outline-variant/30">1/640S</span>
+<span class="px-2 py-1 rounded bg-surface-container-high font-stat-md text-label-caps text-on-surface-variant border border-outline-variant/30">ISO 64</span>
+</div>
+</div>
+<div class="flex items-center gap-4 pt-2">
+<button class="bg-primary-container text-surface-container-lowest font-medium font-body-md text-body-md px-6 py-3 rounded-xl flex items-center gap-2 hover:shadow-[0_0_24px_rgba(60,166,255,0.45)] transition-all" onclick="inspectHeroImage()">
+<span class="material-symbols-outlined text-lg" data-icon="fullscreen">fullscreen</span>
+<span class="">Inspect in Darkroom</span>
+</button>
+<button class="glass-frosted px-4 py-3 rounded-xl font-label-caps text-label-caps text-on-surface hover:border-primary/40 flex items-center gap-2 transition-all" id="canvas-play-toggle" onclick="toggleHeroPlay()">
+<span class="material-symbols-outlined text-sm" data-icon="waves">waves</span>
+<span id="canvas-play-text" class="">Pause Sine Wave</span>
+</button>
+</div>
+</div>
+<!-- Canvas Interactive Viewport Right -->
+<div class="lg:col-span-7 relative group">
+<div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden glass-frosted electric-glow p-1 bg-surface-container-lowest">
+<!-- Canvas Element -->
+<canvas class="w-full h-full rounded-xl cursor-crosshair block" id="hero-mosaic-canvas"></canvas>
+<!-- Subtle Overlays -->
+<div class="pointer-events-none absolute top-4 left-4 flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-lowest/70 backdrop-blur-md border border-outline-variant/30 font-label-caps text-label-caps text-primary">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="">LIVE OPTIC ENGINE: MOSAICBLOOM 2D</span>
+</div>
+<div class="pointer-events-none absolute bottom-4 right-4 text-outline font-label-caps text-label-caps text-[10px] bg-surface-container-lowest/80 px-2 py-1 rounded border border-outline-variant/20">
+                MOVE CURSOR TO PEEL FOCUS (RADIUS 120PX)
+              </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Category Filter Pills & Telemetry Ribbon -->
+<section class="max-w-[1600px] mx-auto px-6 lg:px-16 py-8">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-outline-variant/20">
+<!-- Category Chips Horizontal Slider -->
+<div class="flex items-center gap-2 overflow-x-auto custom-scroll pb-2 max-w-full">
+<button class="cat-pill active px-4 py-2 rounded-xl font-label-caps text-label-caps bg-primary-container text-surface-container-lowest font-medium transition-all shrink-0" onclick="filterCategory('All')">ALL SENSORS</button>
+<button class="cat-pill px-4 py-2 rounded-xl font-label-caps text-label-caps bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:border-primary/40 border border-outline-variant/30 transition-all shrink-0" onclick="filterCategory('Landscape')">Landscape</button>
+<button class="cat-pill px-4 py-2 rounded-xl font-label-caps text-label-caps bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:border-primary/40 border border-outline-variant/30 transition-all shrink-0" onclick="filterCategory('Mountains')">Mountains</button>
+<button class="cat-pill px-4 py-2 rounded-xl font-label-caps text-label-caps bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:border-primary/40 border border-outline-variant/30 transition-all shrink-0" onclick="filterCategory('Beach')">Beach &amp; Coast</button>
+<button class="cat-pill px-4 py-2 rounded-xl font-label-caps text-label-caps bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:border-primary/40 border border-outline-variant/30 transition-all shrink-0" onclick="filterCategory('Heritage &amp; Architecture')">Heritage &amp; Architecture</button>
+<button class="cat-pill px-4 py-2 rounded-xl font-label-caps text-label-caps bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:border-primary/40 border border-outline-variant/30 transition-all shrink-0" onclick="filterCategory('Wildlife')">Wildlife</button>
+<button class="cat-pill px-4 py-2 rounded-xl font-label-caps text-label-caps bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:border-primary/40 border border-outline-variant/30 transition-all shrink-0" onclick="filterCategory('Night Sky')">Night Sky &amp; Astro</button>
+<button class="cat-pill px-4 py-2 rounded-xl font-label-caps text-label-caps bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:border-primary/40 border border-outline-variant/30 transition-all shrink-0" onclick="filterCategory('Street &amp; Culture')">Street &amp; Culture</button>
+</div>
+<!-- Sort / Layout Selector -->
+<div class="flex items-center gap-3 shrink-0">
+<span class="font-label-caps text-label-caps text-outline text-[11px]">SORT:</span>
+<select class="bg-surface-container border border-outline-variant/50 text-on-surface font-body-sm text-body-sm rounded-lg px-3 py-1.5 focus:border-primary focus:ring-0" id="gallery-sort-select" onchange="sortGallery(this.value)">
+<option value="trending">Curator Trending</option>
+<option value="likes">Highest Luminance (Likes)</option>
+<option value="latest">Latest Ingest</option>
+</select>
+</div>
+</div>
+<!-- MASONRY GALLERY GRID -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-8" id="gallery-grid">
+<!-- Dynamically populated via JS state -->
+</div>
+<!-- Gallery Pagination / Load More Trigger -->
+<div class="flex justify-center mt-14 mb-8">
+<button class="glass-frosted border border-outline-variant/40 hover:border-primary/60 text-on-surface font-label-caps text-label-caps px-8 py-3.5 rounded-xl flex items-center gap-3 hover:shadow-[0_0_20px_rgba(60,166,255,0.25)] transition-all" id="load-more-btn" onclick="loadMoreGallery()">
+<span class="material-symbols-outlined text-primary text-base" data-icon="autorenew">autorenew</span>
+<span class="">INGEST DEEPER ARCHIVE CHUNKS</span>
+</button>
+</div>
+</section>
+</div>
+<!-- ======================================== -->
+<!-- VIEW 2: WEEKLY LEADERBOARD PANEL         -->
+<!-- ======================================== -->
+<div class="view-panel hidden transition-opacity duration-300" id="view-leaderboard">
+<section class="max-w-[1400px] mx-auto px-6 lg:px-16 py-12">
+<!-- Header Banner & Timer -->
+<div class="glass-frosted rounded-2xl p-8 lg:p-10 mb-10 border border-secondary/30 gold-bloom flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden">
+<div class="z-10">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-secondary" data-icon="emoji_events" data-weight="fill">emoji_events</span>
+<span class="font-label-caps text-label-caps text-secondary tracking-widest text-[11px]">OPTICAL ARTS GRAND PRIX • WEEK 42</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-semibold">Curators &amp; Optics Laurels</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+              Photographs with supreme dynamic range, tonal nuance, and aesthetic balance evaluated by decentralized darkroom votes.
+            </p>
+</div>
+<div class="z-10 flex flex-col md:items-end">
+<span class="font-label-caps text-label-caps text-outline text-[11px] mb-1">WEEKLY WINDOW CLOSES IN</span>
+<div class="flex items-center gap-2 font-stat-lg text-stat-lg text-secondary bg-surface-container-lowest/80 px-4 py-2 rounded-xl border border-secondary/30">
+<span id="lb-timer" class="">3d 14h 22m 18s</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline mt-1 text-[11px]">Reset at 00:00 UTC Sunday</span>
+</div>
+<!-- Ambient blur back -->
+<div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-secondary-container/10 filter blur-3xl pointer-events-none"></div>
+</div>
+<!-- Toggle Switch: Top Photos vs Top Photographers -->
+<div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+<div class="inline-flex p-1 rounded-xl bg-surface-container border border-outline-variant/30">
+<button class="px-5 py-2 rounded-lg font-label-caps text-label-caps bg-primary-container text-surface-container-lowest font-medium transition-all" id="lb-tab-photos" onclick="switchLeaderboardTab('photos')">TOP 10 EXPOSURES</button>
+<button class="px-5 py-2 rounded-lg font-label-caps text-label-caps text-outline hover:text-on-surface transition-all" id="lb-tab-photogs" onclick="switchLeaderboardTab('photographers')">MASTER CURATORS</button>
+</div>
+<div class="text-outline font-label-caps text-label-caps text-[11px]">
+            SYNCHRONIZED WITH LUMEN API TELEMETRY
+          </div>
+</div>
+<!-- Leaderboard Table Container -->
+<div class="glass-frosted rounded-2xl overflow-hidden border border-outline-variant/30">
+<div id="lb-content-area">
+<!-- Rendered by JS -->
+</div>
+</div>
+</section>
+</div>
+<!-- ======================================== -->
+<!-- VIEW 3: ADMIN CONSOLE & MODERATION       -->
+<!-- ======================================== -->
+<div class="view-panel hidden transition-opacity duration-300" id="view-admin">
+<section class="max-w-[1600px] mx-auto px-6 lg:px-16 py-10">
+<!-- Admin Title Banner -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center pb-8 border-b border-outline-variant/20 gap-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary text-base" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span class="font-label-caps text-label-caps text-primary tracking-widest text-[11px]">CURATOR MODERATION SUITE</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-semibold">Telemetry &amp; Curation Terminal</h2>
+</div>
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/30 font-label-caps text-label-caps text-on-surface">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span class="">NODE: EAST-US-DARKROOM-01</span>
+</span>
+<button class="glass-frosted hover:border-primary/50 text-on-surface p-2 rounded-lg transition-colors" onclick="refreshAdminQueue()" title="Sync Queue">
+<span class="material-symbols-outlined text-base" data-icon="sync">sync</span>
+</button>
+</div>
+</div>
+<!-- Stat Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-8">
+<!-- Card 1 -->
+<div class="glass-frosted p-6 rounded-2xl border border-outline-variant/30 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-outline">TOTAL USERS</span>
+<span class="material-symbols-outlined text-primary text-xl" data-icon="group">group</span>
+</div>
+<div class="mt-4">
+<span class="font-stat-lg text-stat-lg text-on-surface">14,820</span>
+<p class="font-body-sm text-body-sm text-emerald-400 mt-1 flex items-center gap-1 text-[12px]">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+<span class="">+12.4% this cycle</span>
+</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-frosted p-6 rounded-2xl border border-outline-variant/30 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-outline">ARCHIVED EXPOSURES</span>
+<span class="material-symbols-outlined text-primary text-xl" data-icon="photo_library">photo_library</span>
+</div>
+<div class="mt-4">
+<span class="font-stat-lg text-stat-lg text-on-surface">48,290</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 text-[12px]">RAW / DNG calibrated</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-frosted p-6 rounded-2xl border border-outline-variant/30 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-outline">INGEST THIS WEEK</span>
+<span class="material-symbols-outlined text-secondary text-xl" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<div class="mt-4">
+<span class="font-stat-lg text-stat-lg text-on-surface">1,240</span>
+<p class="font-body-sm text-body-sm text-secondary mt-1 text-[12px]">+184 above moving average</p>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="glass-frosted p-6 rounded-2xl border border-primary/40 electric-glow flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-primary">PENDING REVIEW QUEUE</span>
+<span class="material-symbols-outlined text-primary text-xl" data-icon="pending_actions">pending_actions</span>
+</div>
+<div class="mt-4">
+<span class="font-stat-lg text-stat-lg text-primary" id="stat-pending-count">18</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 text-[12px]">Awaiting curator approval</p>
+</div>
+</div>
+</div>
+<!-- Mini Ingest Chart Visualizer & Category Manager -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-10">
+<!-- Ingest Volume Telemetry Bar Graph -->
+<div class="lg:col-span-8 glass-frosted p-6 rounded-2xl border border-outline-variant/30">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Daily Ingestion Cadence</h3>
+<p class="font-body-sm text-body-sm text-outline">Rolling 7-day photographic asset telemetry</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="font-label-caps text-label-caps text-outline text-[10px]">VERIFIED EXPOSURES</span>
+</div>
+</div>
+<!-- Simulated SVG Bar Chart -->
+<div class="h-44 flex items-end justify-between gap-3 pt-6 border-b border-outline-variant/30">
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+<div class="w-full bg-surface-container rounded-t group-hover:bg-primary-container transition-all" style="height: 45%;"></div>
+<span class="font-stat-md text-label-caps text-outline text-[10px]">MON</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+<div class="w-full bg-surface-container rounded-t group-hover:bg-primary-container transition-all" style="height: 60%;"></div>
+<span class="font-stat-md text-label-caps text-outline text-[10px]">TUE</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+<div class="w-full bg-surface-container rounded-t group-hover:bg-primary-container transition-all" style="height: 52%;"></div>
+<span class="font-stat-md text-label-caps text-outline text-[10px]">WED</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+<div class="w-full bg-surface-container rounded-t group-hover:bg-primary-container transition-all" style="height: 80%;"></div>
+<span class="font-stat-md text-label-caps text-outline text-[10px]">THU</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+<div class="w-full bg-surface-container rounded-t group-hover:bg-primary-container transition-all" style="height: 95%;"></div>
+<span class="font-stat-md text-label-caps text-outline text-[10px]">FRI</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+<div class="w-full bg-primary-container/80 rounded-t shadow-[0_0_15px_rgba(60,166,255,0.4)]" style="height: 100%;"></div>
+<span class="font-stat-md text-label-caps text-primary text-[10px] font-bold">SAT</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+<div class="w-full bg-surface-container rounded-t group-hover:bg-primary-container transition-all" style="height: 72%;"></div>
+<span class="font-stat-md text-label-caps text-outline text-[10px]">SUN</span>
+</div>
+</div>
+<div class="flex justify-between items-center pt-3 text-outline font-label-caps text-label-caps text-[10px]">
+<span class="">LOW: 140 / DAY</span>
+<span class="">PEAK: 342 / DAY</span>
+</div>
+</div>
+<!-- Quick Category Tag Registry -->
+<div class="lg:col-span-4 glass-frosted p-6 rounded-2xl border border-outline-variant/30 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Taxonomy Control</h3>
+<span class="font-label-caps text-label-caps text-outline text-[10px]">8 ACTIVE</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline mb-4">Register new focal tags into the global discovery taxonomy.</p>
+<div class="flex gap-2 mb-4">
+<input class="w-full bg-surface-container-lowest border border-outline-variant/40 rounded-lg px-3 py-1.5 text-body-sm font-body-sm text-on-surface focus:border-primary focus:ring-0" id="new-tag-input" placeholder="e.g., Macro Microcosm" type="text">
+<button class="bg-primary text-on-primary px-3 py-1.5 rounded-lg font-label-caps text-label-caps font-semibold shrink-0 hover:bg-primary-fixed transition-colors" onclick="addNewCategoryTag()">
+                  ADD
+                </button>
+</div>
+<div class="flex flex-wrap gap-2 max-h-36 overflow-y-auto custom-scroll pr-1" id="admin-tags-list">
+<!-- JS populated -->
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 text-outline font-body-sm text-body-sm text-[11px]">
+              Categories dictate lens curation criteria and search clustering.
+            </div>
+</div>
+</div>
+<!-- Moderation Queue Table -->
+<div class="glass-frosted rounded-2xl border border-outline-variant/30 overflow-hidden mb-12">
+<div class="p-6 border-b border-outline-variant/20 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Moderation Ingest Pipeline</h3>
+<p class="font-body-sm text-body-sm text-outline">Real-time submissions awaiting metadata verification</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-outline text-[11px]">FILTER:</span>
+<button class="px-3 py-1 rounded bg-surface-container text-xs font-label-caps text-label-caps text-on-surface hover:border-primary border border-transparent" onclick="filterQueue('all')">All</button>
+<button class="px-3 py-1 rounded bg-surface-container text-xs font-label-caps text-label-caps text-primary hover:border-primary border border-transparent" onclick="filterQueue('pending')">Pending</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/30 bg-surface-container-low/60 text-outline font-label-caps text-label-caps text-[11px]">
+<th class="py-3.5 px-6">PREVIEW / EXIF</th>
+<th class="py-3.5 px-4">TITLE &amp; GEOGRAPHY</th>
+<th class="py-3.5 px-4">CREATOR</th>
+<th class="py-3.5 px-4">STATUS</th>
+<th class="py-3.5 px-6 text-right">CURATOR ACTIONS</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 font-body-sm text-body-sm" id="admin-queue-tbody">
+<!-- JS Populated Rows -->
+</tbody>
+</table>
+</div>
+</div>
+<!-- User Access & Role Administration Panel -->
+<div class="glass-frosted rounded-2xl border border-outline-variant/30 p-6">
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Curator &amp; Lens Registry</h3>
+<p class="font-body-sm text-body-sm text-outline">Manage role grants and telemetry blacklisting</p>
+</div>
+<div class="w-72">
+<input class="w-full bg-surface-container-lowest border border-outline-variant/40 rounded-xl px-3 py-2 text-body-sm text-on-surface focus:border-primary focus:ring-0" id="user-mgmt-search" oninput="searchUsers(this.value)" placeholder="Search photographer handles..." type="text">
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="users-mgmt-grid">
+<!-- JS Populated Cards -->
+</div>
+</div>
+</section>
+</div>
+<!-- ======================================== -->
+<!-- VIEW 4: LOGIN / REGISTRATION MODAL/VIEW  -->
+<!-- ======================================== -->
+<div class="view-panel hidden transition-opacity duration-300" id="view-auth">
+<div class="min-h-[819px] flex items-center justify-center px-6 py-12">
+<div class="w-full max-w-md glass-frosted-heavy p-8 lg:p-10 rounded-3xl border border-outline-variant/40 shadow-[0_8px_40px_rgba(0,0,0,0.8)] relative">
+<!-- Radial Lens Bloom -->
+<div class="absolute -top-12 -right-12 w-48 h-48 bg-primary/20 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Header -->
+<div class="text-center mb-8">
+<div class="w-12 h-12 rounded-full border border-primary/50 flex items-center justify-center bg-surface-container mx-auto mb-3 shadow-[0_0_16px_rgba(60,166,255,0.3)]">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="lens_blur">lens_blur</span>
+</div>
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface">LUMEN DARKROOM</h2>
+<p class="font-body-sm text-body-sm text-outline mt-1">Authenticate access to high-fidelity optic feeds</p>
+</div>
+<!-- Auth Tabs -->
+<div class="flex border-b border-outline-variant/30 mb-6 font-label-caps text-label-caps">
+<button class="flex-1 pb-3 border-b-2 border-primary text-primary font-semibold transition-all" id="auth-tab-login" onclick="toggleAuthTab('login')">SIGN IN</button>
+<button class="flex-1 pb-3 text-outline hover:text-on-surface transition-all" id="auth-tab-register" onclick="toggleAuthTab('register')">REGISTER LENS</button>
+</div>
+<!-- Form Fields -->
+<form class="space-y-4" onsubmit="handleAuthSubmit(event)">
+<div class="hidden" id="auth-fullname-group">
+<label class="block font-label-caps text-label-caps text-outline mb-1 text-[11px]">PHOTOGRAPHER NAME</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/40 rounded-xl px-4 py-2.5 text-on-surface focus:border-primary focus:ring-0" id="auth-name" placeholder="Elias Thorne" type="text">
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-outline mb-1 text-[11px]">EMAIL TELEMETRY</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/40 rounded-xl px-4 py-2.5 text-on-surface focus:border-primary focus:ring-0" id="auth-email" required="" type="email" value="curator@lumen.lens">
+</div>
+<div>
+<div class="flex justify-between items-center mb-1">
+<label class="font-label-caps text-label-caps text-outline text-[11px]">MASTER KEY (PASSWORD)</label>
+<a class="font-label-caps text-label-caps text-primary hover:underline text-[10px]" href="#">Forgot?</a>
+</div>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/40 rounded-xl px-4 py-2.5 text-on-surface focus:border-primary focus:ring-0" id="auth-pass" required="" type="password" value="••••••••••••">
+</div>
+<div class="flex items-center justify-between text-body-sm text-body-sm pt-1">
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="rounded border-outline-variant/40 bg-surface-container-lowest text-primary focus:ring-0" type="checkbox">
+<span class="text-outline text-xs">Keep Darkroom Open</span>
+</label>
+</div>
+<button class="w-full bg-primary-container text-surface-container-lowest font-medium font-body-md text-body-md py-3 rounded-xl mt-4 hover:shadow-[0_0_24px_rgba(60,166,255,0.4)] active:scale-[0.98] transition-all" id="auth-submit-btn" type="submit">
+              AUTHENTICATE SESSION
+            </button>
+</form>
+<!-- Quick Demo Role Switches -->
+<div class="mt-8 pt-6 border-t border-outline-variant/20">
+<span class="block font-label-caps text-label-caps text-outline text-[10px] text-center mb-3">INSTANT PRESET CREDENTIALS</span>
+<div class="grid grid-cols-2 gap-3">
+<button class="glass-frosted hover:border-primary/50 text-on-surface py-2 rounded-xl text-xs font-label-caps text-label-caps flex items-center justify-center gap-1.5 transition-colors" onclick="demoLogin('photographer')">
+<span class="material-symbols-outlined text-sm" data-icon="photo_camera">photo_camera</span>
+<span class="">Photographer</span>
+</button>
+<button class="glass-frosted border-secondary/40 hover:border-secondary text-secondary py-2 rounded-xl text-xs font-label-caps text-label-caps flex items-center justify-center gap-1.5 transition-colors" onclick="demoLogin('admin')">
+<span class="material-symbols-outlined text-sm" data-icon="shield">shield</span>
+<span class="">Curator Admin</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- ========================================== -->
+<!-- MODAL 1: PHOTO LIGHTBOX DIALOG             -->
+<!-- ========================================== -->
+<div class="fixed inset-0 z-50 bg-surface-container-lowest/95 backdrop-blur-xl hidden flex items-center justify-center p-4 lg:p-10 transition-opacity duration-300" id="lightbox-modal">
+<div class="relative w-full max-w-[1500px] h-[942px] glass-frosted-heavy rounded-2xl border border-outline-variant/30 overflow-hidden flex flex-col lg:flex-row shadow-[0_12px_60px_rgba(0,0,0,0.9)]">
+<!-- Close Button -->
+<button class="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-surface-container-lowest/80 text-outline hover:text-on-surface border border-outline-variant/40 flex items-center justify-center transition-colors" onclick="closeLightbox()">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<!-- Main Visual Viewport (Left/Top) -->
+<div class="flex-1 h-full bg-black/90 relative flex items-center justify-center overflow-hidden p-4 group">
+<img alt="High resolution inspection" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]" id="lightbox-img" src="">
+<!-- Live Photographic HUD / EXIF Inspector (Specialty Component) -->
+<div class="absolute bottom-6 left-6 right-6 lg:right-auto glass-frosted px-6 py-4 rounded-xl border border-outline-variant/40 flex items-center gap-6 flex-wrap backdrop-blur-lg">
+<div>
+<span class="font-label-caps text-label-caps text-outline block text-[9px]">LENS &amp; SENSOR</span>
+<span class="font-stat-md text-stat-md text-primary" id="lb-hud-lens">SONY FE 24-70MM GM II</span>
+</div>
+<div class="h-6 w-px bg-outline-variant/40"></div>
+<div>
+<span class="font-label-caps text-label-caps text-outline block text-[9px]">EXPOSURE</span>
+<span class="font-stat-md text-stat-md text-on-surface" id="lb-hud-shutter">1/1000s</span>
+</div>
+<div class="h-6 w-px bg-outline-variant/40"></div>
+<div>
+<span class="font-label-caps text-label-caps text-outline block text-[9px]">APERTURE</span>
+<span class="font-stat-md text-stat-md text-on-surface" id="lb-hud-aperture">f/2.8</span>
+</div>
+<div class="h-6 w-px bg-outline-variant/40"></div>
+<div>
+<span class="font-label-caps text-label-caps text-outline block text-[9px]">SENSITIVITY</span>
+<span class="font-stat-md text-stat-md text-on-surface" id="lb-hud-iso">ISO 100</span>
+</div>
+</div>
+</div>
+<!-- Metadata & Interaction Drawer (Right) -->
+<div class="w-full lg:w-96 h-full flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-outline-variant/30 bg-surface-container-lowest/60 p-6 custom-scroll overflow-y-auto">
+<div class="space-y-6">
+<!-- Creator Info -->
+<div class="flex items-center justify-between pb-4 border-b border-outline-variant/20">
+<div class="flex items-center gap-3">
+<img alt="Avatar" class="w-11 h-11 rounded-full object-cover border border-primary/40" id="lb-author-avatar" src="">
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface" id="lb-author-name">Elena Rostova</h4>
+<p class="font-label-caps text-label-caps text-outline text-[10px]" id="lb-photo-loc">ICELANDIC HIGHLANDS</p>
+</div>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant/40 text-on-surface hover:border-primary/50 transition-colors" id="lb-like-btn" onclick="toggleLightboxLike()">
+<span class="material-symbols-outlined text-primary text-base" data-icon="favorite">favorite</span>
+<span class="font-stat-md text-stat-md text-xs" id="lb-like-count">1,429</span>
+</button>
+</div>
+<!-- Title & Description -->
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-2" id="lb-title">Glacial Midnight Crevasse</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" id="lb-desc">
+              Long exposure captured along the Vatnajökull tongue where volcanic obsidian dust blends with sub-zero glacial melt.
+            </p>
+</div>
+<!-- Category Chip -->
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-outline text-[10px]">CATEGORY:</span>
+<span class="px-2.5 py-1 rounded bg-surface-container font-label-caps text-label-caps text-primary border border-primary/20" id="lb-category-chip">Landscape</span>
+</div>
+<!-- Interactive Comments Thread -->
+<div class="pt-4 border-t border-outline-variant/20">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-caps text-label-caps text-outline text-[11px]">CRITIQUE &amp; CURATOR NOTES</span>
+<span class="font-stat-md text-label-caps text-outline text-[10px]" id="lb-comments-count">3 NOTES</span>
+</div>
+<!-- Notes List -->
+<div class="space-y-3 max-h-48 overflow-y-auto custom-scroll pr-1" id="lb-comments-list">
+<!-- Dynamically populated -->
+</div>
+</div>
+</div>
+<!-- Add Comment Input -->
+<div class="pt-4 border-t border-outline-variant/20 mt-4">
+<form class="flex gap-2" onsubmit="postComment(event)">
+<input class="w-full bg-surface-container-low border border-outline-variant/40 rounded-xl px-3 py-2 text-body-sm text-on-surface focus:border-primary focus:ring-0" id="lightbox-comment-input" placeholder="Leave technical critique..." type="text">
+<button class="bg-primary-container text-surface-container-lowest px-3 py-2 rounded-xl hover:shadow-[0_0_12px_rgba(60,166,255,0.4)] transition-all" type="submit">
+<span class="material-symbols-outlined text-base" data-icon="send">send</span>
+</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- MODAL 2: UPLOAD & MOSAIC DISSOLVE EFFECT   -->
+<!-- ========================================== -->
+<div class="fixed inset-0 z-50 bg-surface-container-lowest/90 backdrop-blur-md hidden flex items-center justify-center p-4" id="upload-modal">
+<div class="w-full max-w-2xl glass-frosted-heavy p-8 rounded-3xl border border-outline-variant/40 relative shadow-[0_12px_50px_rgba(0,0,0,0.85)]">
+<!-- Close Button -->
+<button class="absolute top-4 right-4 text-outline hover:text-on-surface" onclick="closeUploadModal()">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-full border border-primary/40 flex items-center justify-center bg-surface-container">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Optical Darkroom Upload</h3>
+<p class="font-body-sm text-body-sm text-outline">Submit RAW / Hi-Res asset to decentralized curation</p>
+</div>
+</div>
+<!-- Upload Form -->
+<form class="space-y-4" onsubmit="handleUploadSubmit(event)">
+<!-- Drag & Drop / Preview Zone with Mosaic Dissolve Canvas -->
+<div class="border-2 border-dashed border-outline-variant/50 hover:border-primary/60 rounded-2xl p-6 text-center cursor-pointer transition-colors relative min-h-[180px] flex flex-col items-center justify-center overflow-hidden bg-surface-container-low/40" id="upload-dropzone">
+<input accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer z-20" id="upload-file-input" onchange="previewUploadFile(event)" type="file">
+<!-- Dropzone Empty State -->
+<div class="space-y-2 pointer-events-none" id="dropzone-empty-state">
+<span class="material-symbols-outlined text-4xl text-outline" data-icon="add_photo_alternate">add_photo_alternate</span>
+<p class="font-body-md text-body-md text-on-surface font-medium">Drag optical master file or click to browse</p>
+<p class="font-label-caps text-label-caps text-outline text-[10px]">TIFF, DNG, RAW, JPEG UP TO 60MB • 16-BIT COLOR PREFERRED</p>
+</div>
+<!-- Mosaic Dissolve Simulation Canvas -->
+<canvas class="hidden absolute inset-0 w-full h-full object-cover z-10 pointer-events-none" id="upload-mosaic-canvas"></canvas>
+<!-- Processing Badge -->
+<div class="hidden absolute bottom-3 z-20 bg-surface-container-lowest/80 px-3 py-1 rounded-full border border-primary text-primary font-label-caps text-label-caps text-[10px] animate-pulse" id="upload-processing-badge">
+            CALIBRATING MOSAICBLOOM RESOLUTION...
+          </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block font-label-caps text-label-caps text-outline mb-1 text-[11px]">EXPOSURE TITLE</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/40 rounded-xl px-4 py-2.5 text-body-sm text-on-surface focus:border-primary focus:ring-0" id="up-title" placeholder="e.g., Lofoten Northern Auroras" required="" type="text">
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-outline mb-1 text-[11px]">GEOGRAPHIC LOCATION</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/40 rounded-xl px-4 py-2.5 text-body-sm text-on-surface focus:border-primary focus:ring-0" id="up-loc" placeholder="e.g., Reine, Norway" required="" type="text">
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block font-label-caps text-label-caps text-outline mb-1 text-[11px]">PRIMARY TAXONOMY</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant/40 rounded-xl px-4 py-2.5 text-body-sm text-on-surface focus:border-primary focus:ring-0" id="up-category">
+<option value="Landscape">Landscape</option>
+<option value="Mountains">Mountains</option>
+<option value="Beach">Beach &amp; Coast</option>
+<option value="Heritage &amp; Architecture">Heritage &amp; Architecture</option>
+<option value="Wildlife">Wildlife</option>
+<option value="Night Sky">Night Sky &amp; Astro</option>
+<option value="Street &amp; Culture">Street &amp; Culture</option>
+</select>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-outline mb-1 text-[11px]">EXIF LENS PROFILE</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/40 rounded-xl px-4 py-2.5 text-body-sm text-on-surface focus:border-primary focus:ring-0" id="up-exif" placeholder="50mm • f/1.4 • 1/500s • ISO 100" type="text">
+</div>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-outline mb-1 text-[11px]">CURATORIAL DESCRIPTION</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant/40 rounded-xl px-4 py-2 text-body-sm text-on-surface focus:border-primary focus:ring-0" id="up-desc" placeholder="Brief technical context on lighting condition, filtration, and grading..." rows="2"></textarea>
+</div>
+<div class="flex items-center justify-end gap-3 pt-3">
+<button class="px-5 py-2.5 rounded-xl border border-outline-variant/40 text-outline hover:text-on-surface font-label-caps text-label-caps transition-colors" onclick="closeUploadModal()" type="button">
+            CANCEL
+          </button>
+<button class="bg-primary-container text-surface-container-lowest font-medium font-body-md text-body-md px-6 py-2.5 rounded-xl flex items-center gap-2 hover:shadow-[0_0_20px_rgba(60,166,255,0.45)] transition-all" id="up-submit-btn" type="submit">
+<span class="material-symbols-outlined text-base" data-icon="publish">publish</span>
+<span class="">INGEST EXPOSURE</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- FOOTER (Shared Component Anchor)           -->
+<!-- ========================================== -->
+<footer class="docked full-width bottom bg-surface-container-lowest border-t border-outline-variant/20 mt-16" style="background-color: rgb(245, 241, 234); border-color: rgba(193, 198, 213, 0.4);">
+<div class="w-full max-w-[1600px] mx-auto px-6 lg:px-16 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-4">
+<span class="font-headline-sm text-headline-sm font-semibold tracking-widest text-on-surface">LUMEN</span>
+<span class="h-4 w-px bg-outline-variant/40"></span>
+<p class="font-body-sm text-body-sm text-outline max-w-sm text-center md:text-left">
+          © 2025 LUMEN Optical Arts Ltd. All rights reserved. Ultra-high fidelity imagery curated under darkroom optics.
+        </p>
+</div>
+<!-- Footer Links Array from JSON -->
+<nav class="flex flex-wrap items-center justify-center gap-6">
+<a class="text-outline font-label-caps text-label-caps hover:text-primary transition-colors duration-200" href="#">Editorial Guidelines</a>
+<a class="text-outline font-label-caps text-label-caps hover:text-primary transition-colors duration-200" href="#">EXIF Standards</a>
+<a class="text-outline font-label-caps text-label-caps hover:text-primary transition-colors duration-200" href="#">Curator Rights</a>
+<a class="text-outline font-label-caps text-label-caps hover:text-primary transition-colors duration-200" href="#">Darkroom Archives</a>
+<a class="text-outline font-label-caps text-label-caps hover:text-primary transition-colors duration-200" href="#">API &amp; Telemetry</a>
+<a class="text-outline font-label-caps text-label-caps hover:text-primary transition-colors duration-200" href="#">Legal Privacy</a>
+</nav>
+</div>
+</footer>
+<!-- ================================================================= -->
+<!-- COMPLETE STATE & LOGIC JAVASCRIPT ENGINE                          -->
+<!-- ================================================================= -->
+<script>
+    /* ========================================================= */
+    /* 1. SEED DATA STORE                                        */
+    /* ========================================================= */
+    const DEFAULT_PHOTOS = [
+      {
+        id: "p1",
+        title: "Mount Rainier Alpine Glow",
+        author: "Elias Thorne",
+        authorRole: "Curator",
+        avatar: "placeholder",
+        avatarAlt: "Fine art portrait of lead landscape curator in a dark obsidian studio environment.",
+        image: "placeholder",
+        imageAlt: "A majestic alpine mountain peak bathed in intense pink and purple alpine glow during blue hour, surrounded by deep evergreen forest pine trees and a serene glacial lake reflection. The atmosphere conveys deep stillness and high optical clarity in a moody darkroom palette.",
+        location: "Mount Rainier, Washington",
+        category: "Mountains",
+        likes: 3410,
+        liked: false,
+        shutter: "1/640s",
+        aperture: "f/1.2",
+        iso: "ISO 64",
+        lens: "Leica Summilux 50mm",
+        status: "approved",
+        comments: [
+          { user: "Marcus Vance", text: "The shadow recovery on the lower ridges is surgical." },
+          { user: "Sora K.", text: "Pure magenta-to-indigo graduation. Spectacular exposure." }
+        ]
+      },
+      {
+        id: "p2",
+        title: "Vatnajökull Black Diamond Shore",
+        author: "Astrid Lindholm",
+        authorRole: "Master",
+        avatar: "placeholder",
+        avatarAlt: "Portrait of Nordic landscape photographer Astrid in a dark parka with camera strap.",
+        image: "placeholder",
+        imageAlt: "A crystalline chunk of glacial iceberg resting on pitch black volcanic sand with incoming ocean foam creating long exposure white silky trails under an atmospheric dark storm sky.",
+        location: "Jökulsárlón, Iceland",
+        category: "Beach",
+        likes: 2894,
+        liked: false,
+        shutter: "2.5s",
+        aperture: "f/11",
+        iso: "ISO 100",
+        lens: "Sony FE 16-35mm GM",
+        status: "approved",
+        comments: [
+          { user: "Elias Thorne", text: "That shutter speed holds perfect wave texture without turning to mush." }
+        ]
+      },
+      {
+        id: "p3",
+        title: "Kyoto Fushimi Corridor of Shadows",
+        author: "Kenji Sato",
+        authorRole: "Pro",
+        avatar: "placeholder",
+        avatarAlt: "Japanese street photographer Kenji Sato framed in cinematic low-key lighting.",
+        image: "placeholder",
+        imageAlt: "A rhythmic corridor of vermillion Japanese torii gates curving into dim mist with soft lantern light casting warm amber rays across damp cobblestones in a quiet evening rain.",
+        location: "Kyoto, Japan",
+        category: "Heritage & Architecture",
+        likes: 2415,
+        liked: true,
+        shutter: "1/160s",
+        aperture: "f/1.8",
+        iso: "ISO 800",
+        lens: "Fujinon XF 33mm f/1.4",
+        status: "approved",
+        comments: [
+          { user: "Elena Rostova", text: "The vermillion tones look so authentic without digital clipping." }
+        ]
+      },
+      {
+        id: "p4",
+        title: "Milky Way Arch over Arches",
+        author: "Sarah Jenkins",
+        authorRole: "Pro",
+        avatar: "placeholder",
+        avatarAlt: "Astrophotographer Sarah Jenkins checking telescope telemetry against a starry night sky.",
+        image: "placeholder",
+        imageAlt: "A luminous celestial arch of the Milky Way core galaxy stretching across a natural red sandstone rock arch formation under an obsidian night sky filled with millions of glittering stars.",
+        location: "Moab, Utah",
+        category: "Night Sky",
+        likes: 2190,
+        liked: false,
+        shutter: "20s",
+        aperture: "f/2.8",
+        iso: "ISO 3200",
+        lens: "Sigma 14-24mm Art",
+        status: "approved",
+        comments: [
+          { user: "Kenji Sato", text: "Tracking accuracy on the core is remarkably sharp." }
+        ]
+      },
+      {
+        id: "p5",
+        title: "Highland Monarch in Morning Mist",
+        author: "Callum MacLeod",
+        authorRole: "Curator",
+        avatar: "placeholder",
+        avatarAlt: "Scottish wildlife shooter Callum MacLeod outdoors with telephoto lens.",
+        image: "placeholder",
+        imageAlt: "A majestic red stag deer with expansive antlers standing proud atop a misty heather-covered hill in the Scottish Highlands as golden morning sunlight cuts through thick fog.",
+        location: "Glen Coe, Scotland",
+        category: "Wildlife",
+        likes: 1980,
+        liked: false,
+        shutter: "1/1000s",
+        aperture: "f/4.0",
+        iso: "ISO 400",
+        lens: "Canon RF 400mm f/2.8L",
+        status: "approved",
+        comments: [
+          { user: "Astrid Lindholm", text: "Breath condensing in the cold air creates wonderful rim lighting." }
+        ]
+      },
+      {
+        id: "p6",
+        title: "Neon Rain Reflections in Shinjuku",
+        author: "Kenji Sato",
+        authorRole: "Pro",
+        avatar: "placeholder",
+        avatarAlt: "Japanese street photographer Kenji Sato framed in cinematic low-key lighting.",
+        image: "placeholder",
+        imageAlt: "A cyberpunk cinematic street scene in Tokyo at night with rain puddles reflecting vivid electric cyan and hot magenta neon signs, pedestrians holding clear umbrellas under moody shadows.",
+        location: "Shinjuku, Tokyo",
+        category: "Street & Culture",
+        likes: 1840,
+        liked: false,
+        shutter: "1/200s",
+        aperture: "f/1.4",
+        iso: "ISO 1600",
+        lens: "Voigtländer 40mm Nokton",
+        status: "approved",
+        comments: []
+      },
+      {
+        id: "p7",
+        title: "Dolomites Tre Cime Alpenglow",
+        author: "Matteo Rossi",
+        authorRole: "Member",
+        avatar: "placeholder",
+        avatarAlt: "Italian alpine explorer Matteo Rossi wearing mountaineering gear in cool morning light.",
+        image: "placeholder",
+        imageAlt: "Three colossal limestone towers of Tre Cime di Lavaredo glowing in vivid orange alpenglow against a deep twilight blue sky with wispy clouds swirling around craggy peaks.",
+        location: "Dolomites, Italy",
+        category: "Mountains",
+        likes: 1620,
+        liked: false,
+        shutter: "1/30s",
+        aperture: "f/8.0",
+        iso: "ISO 100",
+        lens: "Nikon Z 24-120mm",
+        status: "approved",
+        comments: []
+      },
+      {
+        id: "p8",
+        title: "Matterhorn Twilight Reflection",
+        author: "Elena Rostova",
+        authorRole: "Master",
+        avatar: "placeholder",
+        avatarAlt: "Fine art photographer Elena Rostova in a minimal high-end gallery space with dark styling.",
+        image: "placeholder",
+        imageAlt: "The iconic pyramid peak of the Matterhorn mountain sharply mirrored in the calm water of Riffelsee lake during evening twilight with subtle star trails beginning to emerge.",
+        location: "Zermatt, Switzerland",
+        category: "Mountains",
+        likes: 1540,
+        liked: false,
+        shutter: "15s",
+        aperture: "f/5.6",
+        iso: "ISO 200",
+        lens: "Hasselblad XCD 45mm",
+        status: "pending",
+        comments: []
+      }
+    ];
+
+    const DEFAULT_USERS = [
+      { id: "u1", name: "Elias Thorne", handle: "@elias_thorne", role: "Curator", photosCount: 42, rep: 98, banned: false },
+      { id: "u2", name: "Astrid Lindholm", handle: "@astrid_nord", role: "Photographer", photosCount: 31, rep: 94, banned: false },
+      { id: "u3", name: "Kenji Sato", handle: "@kenji_tokyo", role: "Photographer", photosCount: 56, rep: 91, banned: false },
+      { id: "u4", name: "Elena Rostova", handle: "@elena_optics", role: "Curator", photosCount: 29, rep: 96, banned: false },
+      { id: "u5", name: "Sarah Jenkins", handle: "@sarah_astro", role: "Photographer", photosCount: 19, rep: 89, banned: false }
+    ];
+
+    const DEFAULT_CATEGORIES = [
+      "Landscape", "Mountains", "Beach", "Heritage & Architecture", "Wildlife", "Night Sky", "Street & Culture", "Macro Microcosm"
+    ];
+
+    // Local Storage Hydration
+    let appState = {
+      photos: JSON.parse(localStorage.getItem('lumen_photos')) || DEFAULT_PHOTOS,
+      users: JSON.parse(localStorage.getItem('lumen_users')) || DEFAULT_USERS,
+      categories: JSON.parse(localStorage.getItem('lumen_categories')) || DEFAULT_CATEGORIES,
+      currentRole: localStorage.getItem('lumen_user_role') || 'Curator',
+      currentFilter: 'All',
+      currentSort: 'trending',
+      activeView: 'gallery',
+      activeLeaderboardTab: 'photos',
+      searchQuery: ''
+    };
+
+    function saveState() {
+      localStorage.setItem('lumen_photos', JSON.stringify(appState.photos));
+      localStorage.setItem('lumen_users', JSON.stringify(appState.users));
+      localStorage.setItem('lumen_categories', JSON.stringify(appState.categories));
+      localStorage.setItem('lumen_user_role', appState.currentRole);
+    }
+
+    /* ========================================================= */
+    /* 2. NAVIGATION & VIEW CONTROLLER                           */
+    /* ========================================================= */
+    function switchView(viewName) {
+      appState.activeView = viewName;
+      
+      const views = ['gallery', 'leaderboard', 'admin', 'auth'];
+      views.forEach(v => {
+        const el = document.getElementById(`view-${v}`);
+        if (el) {
+          if (v === viewName) {
+            el.classList.remove('hidden');
+            setTimeout(() => el.classList.remove('opacity-0'), 10);
+          } else {
+            el.classList.add('hidden');
+          }
+        }
+      });
+
+      // Update Nav Anchor Links
+      const navLinks = {
+        gallery: document.getElementById('nav-gallery'),
+        galleries: document.getElementById('nav-galleries'),
+        leaderboard: document.getElementById('nav-leaderboard'),
+        admin: document.getElementById('nav-admin')
+      };
+
+      // Reset styles
+      Object.values(navLinks).forEach(link => {
+        if (!link) return;
+        link.className = "text-on-surface-variant hover:text-on-surface transition-colors pb-1 font-body-md text-body-md";
+      });
+
+      if (viewName === 'gallery' && navLinks.gallery) {
+        navLinks.gallery.className = "text-primary font-medium border-b-2 border-primary pb-1 font-body-md text-body-md";
+      } else if (viewName === 'leaderboard' && navLinks.leaderboard) {
+        navLinks.leaderboard.className = "text-primary font-medium border-b-2 border-primary pb-1 font-body-md text-body-md flex items-center gap-1.5";
+      } else if (viewName === 'admin' && navLinks.admin) {
+        navLinks.admin.className = "text-primary font-medium border-b-2 border-primary pb-1 font-body-md text-body-md flex items-center gap-1";
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Refresh corresponding sub-systems
+      if (viewName === 'leaderboard') renderLeaderboard();
+      if (viewName === 'admin') renderAdminConsole();
+    }
+
+    function toggleUserRole() {
+      appState.currentRole = appState.currentRole === 'Curator' ? 'Photographer' : 'Curator';
+      document.getElementById('current-role-label').textContent = appState.currentRole;
+      saveState();
+      
+      // Update quick badge color
+      const btn = document.getElementById('role-toggle-btn');
+      if (appState.currentRole === 'Curator') {
+        btn.className = "font-label-caps text-label-caps text-secondary hover:text-secondary-fixed transition-colors flex items-center gap-1";
+      } else {
+        btn.className = "font-label-caps text-label-caps text-primary hover:text-primary-fixed transition-colors flex items-center gap-1";
+      }
+    }
+
+    /* ========================================================= */
+    /* 3. HERO CANVAS ENGINE: MOSAICBLOOM 2D                    */
+    /* ========================================================= */
+    let heroCanvas, heroCtx;
+    let heroImageObj = null;
+    let animFrameId = null;
+    let canvasRunning = true;
+    let pointerX = -9999, pointerY = -9999;
+    let sineTime = 0;
+
+    function initHeroMosaicEngine() {
+      heroCanvas = document.getElementById('hero-mosaic-canvas');
+      if (!heroCanvas) return;
+      heroCtx = heroCanvas.getContext('2d');
+
+      // Create synthetic high-res procedural darkroom landscape on buffer
+      const buffer = document.createElement('canvas');
+      buffer.width = 960;
+      buffer.height = 600;
+      const bCtx = buffer.getContext('2d');
+
+      // Draw high fidelity darkroom gradient mountain
+      const grad = bCtx.createLinearGradient(0, 0, 0, 600);
+      grad.addColorStop(0, '#0a0d14');
+      grad.addColorStop(0.3, '#192438');
+      grad.addColorStop(0.65, '#5d2b4f');
+      grad.addColorStop(0.85, '#e08365');
+      grad.addColorStop(1, '#ffc28d');
+      bCtx.fillStyle = grad;
+      bCtx.fillRect(0, 0, 960, 600);
+
+      // Mountain silhouette
+      bCtx.fillStyle = '#06080c';
+      bCtx.beginPath();
+      bCtx.moveTo(0, 600);
+      bCtx.lineTo(0, 480);
+      bCtx.lineTo(240, 320);
+      bCtx.lineTo(480, 180);
+      bCtx.lineTo(540, 240);
+      bCtx.lineTo(720, 360);
+      bCtx.lineTo(960, 440);
+      bCtx.lineTo(960, 600);
+      bCtx.closePath();
+      bCtx.fill();
+
+      // Mountain highlights / alpine glow reflection
+      bCtx.strokeStyle = 'rgba(255, 175, 130, 0.45)';
+      bCtx.lineWidth = 3;
+      bCtx.beginPath();
+      bCtx.moveTo(240, 320);
+      bCtx.lineTo(480, 180);
+      bCtx.lineTo(540, 240);
+      bCtx.stroke();
+
+      heroImageObj = buffer;
+
+      // Fit resolution to display
+      function resizeCanvas() {
+        const rect = heroCanvas.getBoundingClientRect();
+        heroCanvas.width = rect.width;
+        heroCanvas.height = rect.height;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      // Track pointer
+      heroCanvas.addEventListener('mousemove', (e) => {
+        const rect = heroCanvas.getBoundingClientRect();
+        pointerX = e.clientX - rect.left;
+        pointerY = e.clientY - rect.top;
+      });
+      heroCanvas.addEventListener('mouseleave', () => {
+        pointerX = -9999;
+        pointerY = -9999;
+      });
+
+      // Start render loop
+      renderMosaicBloomFrame();
+    }
+
+    function renderMosaicBloomFrame() {
+      if (!heroCtx || !heroCanvas) return;
+
+      const w = heroCanvas.width;
+      const h = heroCanvas.height;
+      const cellSize = 16;
+      const revealRadius = 130;
+
+      heroCtx.clearRect(0, 0, w, h);
+
+      if (heroImageObj) {
+        // Draw the crisp base image
+        heroCtx.drawImage(heroImageObj, 0, 0, w, h);
+
+        if (canvasRunning) {
+          sineTime += 0.035;
+        }
+
+        // Overlay MosaicBloom Grid
+        for (let y = 0; y < h; y += cellSize) {
+          for (let x = 0; x < w; x += cellSize) {
+            
+            // Distance from pointer
+            const dx = (x + cellSize / 2) - pointerX;
+            const dy = (y + cellSize / 2) - pointerY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            // If inside hover reveal radius, clear into pure photograph!
+            if (dist < revealRadius) {
+              const alphaFactor = Math.max(0, (revealRadius - dist) / revealRadius);
+              // Draw subtle cyan rim ring at border of revelation
+              if (dist > revealRadius - 6) {
+                heroCtx.fillStyle = 'rgba(60, 166, 255, 0.4)';
+                heroCtx.fillRect(x, y, cellSize, cellSize);
+              }
+              continue; // Skip mosaic tile rendering to let crisp image show
+            }
+
+            // Sine wave oscillator
+            const wave = Math.sin((x * 0.02) + (y * 0.02) + sineTime);
+            const scale = 0.65 + wave * 0.35;
+            const tileAlpha = 0.55 + wave * 0.25;
+
+            // Electric optical bloom tone
+            heroCtx.save();
+            heroCtx.translate(x + cellSize / 2, y + cellSize / 2);
+            heroCtx.scale(scale, scale);
+
+            // Shading
+            heroCtx.fillStyle = `rgba(13, 17, 23, ${tileAlpha * 0.7})`;
+            heroCtx.fillRect(-cellSize / 2, -cellSize / 2, cellSize - 1, cellSize - 1);
+
+            // Electric Cyan Micro Dot
+            if ((x + y) % (cellSize * 2) === 0) {
+              heroCtx.fillStyle = 'rgba(60, 166, 255, 0.6)';
+              heroCtx.fillRect(-1.5, -1.5, 3, 3);
+            }
+
+            heroCtx.restore();
+          }
+        }
+
+        // Radial Vignette Falloff pass
+        const radGrad = heroCtx.createRadialGradient(w / 2, h / 2, w * 0.2, w / 2, h / 2, w * 0.65);
+        radGrad.addColorStop(0, 'rgba(7, 9, 13, 0)');
+        radGrad.addColorStop(1, 'rgba(7, 9, 13, 0.82)');
+        heroCtx.fillStyle = radGrad;
+        heroCtx.fillRect(0, 0, w, h);
+      }
+
+      animFrameId = requestAnimationFrame(renderMosaicBloomFrame);
+    }
+
+    function toggleHeroPlay() {
+      canvasRunning = !canvasRunning;
+      const text = document.getElementById('canvas-play-text');
+      if (text) text.textContent = canvasRunning ? 'Pause Sine Wave' : 'Resume Sine Wave';
+    }
+
+    function inspectHeroImage() {
+      openLightbox("p1");
+    }
+
+    /* ========================================================= */
+    /* 4. GALLERY RENDERING & INTERACTION                        */
+    /* ========================================================= */
+    function filterCategory(catName) {
+      appState.currentFilter = catName;
+      
+      // Update pills
+      const pills = document.querySelectorAll('.cat-pill');
+      pills.forEach(p => {
+        if (p.textContent.trim().toLowerCase().includes(catName.toLowerCase()) || 
+            (catName === 'All' && p.textContent.includes('ALL'))) {
+          p.className = "cat-pill active px-4 py-2 rounded-xl font-label-caps text-label-caps bg-primary-container text-surface-container-lowest font-medium transition-all shrink-0";
+        } else {
+          p.className = "cat-pill px-4 py-2 rounded-xl font-label-caps text-label-caps bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:border-primary/40 border border-outline-variant/30 transition-all shrink-0";
+        }
+      });
+
+      renderGallery();
+    }
+
+    function sortGallery(sortVal) {
+      appState.currentSort = sortVal;
+      renderGallery();
+    }
+
+    function handleSearch(val) {
+      appState.searchQuery = val.trim().toLowerCase();
+      const escBtn = document.getElementById('search-clear-btn');
+      if (escBtn) {
+        if (val.length > 0) escBtn.classList.remove('hidden');
+        else escBtn.classList.add('hidden');
+      }
+      renderGallery();
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('global-search-input');
+      if (input) input.value = '';
+      appState.searchQuery = '';
+      document.getElementById('search-clear-btn').classList.add('hidden');
+      renderGallery();
+    }
+
+    function renderGallery() {
+      const grid = document.getElementById('gallery-grid');
+      if (!grid) return;
+
+      // Filter
+      let list = appState.photos.filter(p => p.status === 'approved');
+
+      if (appState.currentFilter !== 'All') {
+        list = list.filter(p => p.category.toLowerCase().includes(appState.currentFilter.toLowerCase()));
+      }
+
+      if (appState.searchQuery) {
+        list = list.filter(p => 
+          p.title.toLowerCase().includes(appState.searchQuery) ||
+          p.author.toLowerCase().includes(appState.searchQuery) ||
+          p.location.toLowerCase().includes(appState.searchQuery) ||
+          p.lens.toLowerCase().includes(appState.searchQuery)
+        );
+      }
+
+      // Sort
+      if (appState.currentSort === 'likes') {
+        list.sort((a, b) => b.likes - a.likes);
+      } else if (appState.currentSort === 'latest') {
+        // preserve array reverse
+      }
+
+      if (list.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-16 text-center glass-frosted rounded-2xl border border-outline-variant/30">
+            <span class="material-symbols-outlined text-4xl text-outline mb-2" data-icon="search_off">search_off</span>
+            <p class="font-headline-sm text-headline-sm text-on-surface">No Optical Exposures Match Query</p>
+            <p class="font-body-sm text-body-sm text-outline mt-1">Try resetting category filters or search parameters.</p>
+            <button onclick="filterCategory('All')" class="mt-4 px-4 py-2 rounded-xl bg-primary-container text-surface-container-lowest font-label-caps text-label-caps font-semibold">RESET CATALOG</button>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = list.map(item => `
+        <div class="group relative rounded-2xl overflow-hidden glass-frosted border border-outline-variant/30 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_24px_rgba(60,166,255,0.25)] flex flex-col justify-between">
+          
+          <!-- Image Viewport -->
+          <div class="relative w-full aspect-[4/3] overflow-hidden bg-surface-container-lowest cursor-pointer" onclick="openLightbox('${item.id}')">
+            <img 
+              src="${item.image}" 
+              data-alt="${item.imageAlt}"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            >
+            <!-- Vignette gradient on bottom of card image -->
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-90"></div>
+
+            <!-- Category Badge Top-Left -->
+            <div class="absolute top-3 left-3 px-2.5 py-1 rounded bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/40 font-label-caps text-label-caps text-primary text-[10px]">
+              ${item.category}
+            </div>
+
+            <!-- EXIF Lens Pill Bottom-Left on Image -->
+            <div class="absolute bottom-3 left-3 px-2 py-0.5 rounded bg-surface-container-lowest/85 backdrop-blur-md border border-outline-variant/30 font-stat-md text-[10px] text-on-surface-variant flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-xs text-primary" data-icon="photo_camera">photo_camera</span>
+              <span>${item.shutter} • ${item.aperture}</span>
+            </div>
+          </div>
+
+          <!-- Metadata Lower Tier -->
+          <div class="p-4 space-y-3">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <h4 class="font-headline-sm text-base text-on-surface font-semibold group-hover:text-primary transition-colors cursor-pointer" onclick="openLightbox('${item.id}')">${item.title}</h4>
+                <p class="font-label-caps text-label-caps text-outline text-[10px] flex items-center gap-1 mt-0.5">
+                  <span class="material-symbols-outlined text-[12px] text-secondary" data-icon="location_on">location_on</span>
+                  <span>${item.location}</span>
+                </p>
+              </div>
+
+              <!-- Like Button with Live Count -->
+              <button onclick="event.stopPropagation(); toggleLike('${item.id}')" class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant/30 text-on-surface hover:border-primary/50 hover:text-primary transition-all active:scale-90">
+                <span class="material-symbols-outlined text-sm ${item.liked ? 'text-primary' : 'text-outline'}" data-icon="favorite" ${item.liked ? 'data-weight="fill"' : ''}>favorite</span>
+                <span class="font-stat-md text-[11px] font-semibold">${item.likes}</span>
+              </button>
+            </div>
+
+            <!-- Photographer Row -->
+            <div class="flex items-center justify-between pt-2 border-t border-outline-variant/20">
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-full overflow-hidden border border-outline-variant/40">
+                  <img src="${item.avatar}" data-alt="${item.avatarAlt}" class="w-full h-full object-cover">
+                </div>
+                <span class="font-body-sm text-body-sm text-outline text-[12px]">${item.author}</span>
+              </div>
+              <span class="font-label-caps text-label-caps text-outline/80 text-[10px]">${item.comments ? item.comments.length : 0} CRITIQUES</span>
+            </div>
+          </div>
+
+        </div>
+      `).join('');
+    }
+
+    function toggleLike(photoId) {
+      const p = appState.photos.find(x => x.id === photoId);
+      if (!p) return;
+      if (p.liked) {
+        p.likes -= 1;
+        p.liked = false;
+      } else {
+        p.likes += 1;
+        p.liked = true;
+      }
+      saveState();
+      renderGallery();
+    }
+
+    function loadMoreGallery() {
+      const btn = document.getElementById('load-more-btn');
+      btn.innerHTML = `<span class="material-symbols-outlined text-primary text-base animate-spin" data-icon="progress_activity">progress_activity</span><span>INGESTING ARCHIVE CHUNKS...</span>`;
+      setTimeout(() => {
+        btn.innerHTML = `<span class="material-symbols-outlined text-primary text-base" data-icon="check">check</span><span>ALL TELEMETRY BLOCKS RESOLVED</span>`;
+      }, 900);
+    }
+
+    /* ========================================================= */
+    /* 5. LIGHTBOX MODAL CONTROLLER                              */
+    /* ========================================================= */
+    let currentLightboxPhotoId = null;
+
+    function openLightbox(photoId) {
+      const photo = appState.photos.find(p => p.id === photoId);
+      if (!photo) return;
+      currentLightboxPhotoId = photoId;
+
+      document.getElementById('lightbox-img').src = photo.image;
+      document.getElementById('lightbox-img').alt = photo.title;
+      document.getElementById('lb-title').textContent = photo.title;
+      document.getElementById('lb-desc').textContent = photo.imageAlt || "Ultra-high resolution optical darkroom exposure.";
+      document.getElementById('lb-photo-loc').textContent = photo.location.toUpperCase();
+      document.getElementById('lb-author-name').textContent = photo.author;
+      document.getElementById('lb-author-avatar').src = photo.avatar;
+      document.getElementById('lb-category-chip').textContent = photo.category;
+      
+      // HUD EXIF
+      document.getElementById('lb-hud-lens').textContent = photo.lens || "SONY FE 24-70MM GM II";
+      document.getElementById('lb-hud-shutter').textContent = photo.shutter || "1/500s";
+      document.getElementById('lb-hud-aperture').textContent = photo.aperture || "f/2.8";
+      document.getElementById('lb-hud-iso').textContent = photo.iso || "ISO 100";
+
+      // Likes
+      document.getElementById('lb-like-count').textContent = photo.likes;
+      
+      // Comments
+      renderLightboxComments(photo);
+
+      const modal = document.getElementById('lightbox-modal');
+      modal.classList.remove('hidden');
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightbox-modal');
+      modal.classList.add('hidden');
+      currentLightboxPhotoId = null;
+    }
+
+    function toggleLightboxLike() {
+      if (!currentLightboxPhotoId) return;
+      toggleLike(currentLightboxPhotoId);
+      const photo = appState.photos.find(p => p.id === currentLightboxPhotoId);
+      if (photo) {
+        document.getElementById('lb-like-count').textContent = photo.likes;
+      }
+    }
+
+    function renderLightboxComments(photo) {
+      const list = document.getElementById('lb-comments-list');
+      const countLabel = document.getElementById('lb-comments-count');
+      const comments = photo.comments || [];
+      countLabel.textContent = `${comments.length} NOTES`;
+
+      if (comments.length === 0) {
+        list.innerHTML = `<p class="font-body-sm text-body-sm text-outline/70 text-xs italic">No critique notes logged yet. Be the first to analyze this exposure.</p>`;
+        return;
+      }
+
+      list.innerHTML = comments.map(c => `
+        <div class="p-2.5 rounded-lg bg-surface-container border border-outline-variant/30 space-y-1">
+          <div class="flex justify-between items-center">
+            <span class="font-body-md text-xs font-semibold text-primary">${c.user}</span>
+            <span class="font-label-caps text-label-caps text-outline text-[9px]">CURATOR VERIFIED</span>
+          </div>
+          <p class="font-body-sm text-body-sm text-on-surface text-xs">${c.text}</p>
+        </div>
+      `).join('');
+    }
+
+    function postComment(e) {
+      e.preventDefault();
+      if (!currentLightboxPhotoId) return;
+      const input = document.getElementById('lightbox-comment-input');
+      const val = input.value.trim();
+      if (!val) return;
+
+      const photo = appState.photos.find(p => p.id === currentLightboxPhotoId);
+      if (!photo) return;
+      if (!photo.comments) photo.comments = [];
+
+      photo.comments.push({
+        user: appState.currentRole === 'Curator' ? 'Curator Thorne' : 'Photographer Guest',
+        text: val
+      });
+
+      input.value = '';
+      saveState();
+      renderLightboxComments(photo);
+      renderGallery();
+    }
+
+    /* ========================================================= */
+    /* 6. UPLOAD MODAL & MOSAIC DISSOLVE EFFECT                  */
+    /* ========================================================= */
+    function openUploadModal() {
+      const modal = document.getElementById('upload-modal');
+      modal.classList.remove('hidden');
+    }
+
+    function closeUploadModal() {
+      const modal = document.getElementById('upload-modal');
+      modal.classList.add('hidden');
+      // Reset dropzone
+      const canvas = document.getElementById('upload-mosaic-canvas');
+      canvas.classList.add('hidden');
+      document.getElementById('dropzone-empty-state').classList.remove('hidden');
+      document.getElementById('upload-processing-badge').classList.add('hidden');
+    }
+
+    function previewUploadFile(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const canvas = document.getElementById('upload-mosaic-canvas');
+      const emptyState = document.getElementById('dropzone-empty-state');
+      const badge = document.getElementById('upload-processing-badge');
+      
+      emptyState.classList.add('hidden');
+      canvas.classList.remove('hidden');
+      badge.classList.remove('hidden');
+
+      const ctx = canvas.getContext('2d');
+      const img = new Image();
+      const reader = new FileReader();
+
+      reader.onload = (event) => {
+        img.onload = () => {
+          canvas.width = canvas.parentElement.clientWidth;
+          canvas.height = canvas.parentElement.clientHeight;
+
+          // RUN MOSAIC DISSOLVE ANIMATION
+          let step = 32;
+          const dissolveInterval = setInterval(() => {
+            if (step <= 1) {
+              clearInterval(dissolveInterval);
+              // Draw final crisp
+              ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+              badge.textContent = "OPTICAL CALIBRATION COMPLETE";
+              badge.classList.remove('animate-pulse');
+              return;
+            }
+
+            // Draw pixelated
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const data = imgData.data;
+
+            for (let y = 0; y < canvas.height; y += step) {
+              for (let x = 0; x < canvas.width; x += step) {
+                const i = (y * canvas.width + x) * 4;
+                const r = data[i], g = data[i + 1], b = data[i + 2];
+                ctx.fillStyle = `rgb(${r},${g},${b})`;
+                ctx.fillRect(x, y, step, step);
+              }
+            }
+            step = Math.floor(step / 2);
+          }, 150);
+        };
+        img.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function handleUploadSubmit(e) {
+      e.preventDefault();
+      const title = document.getElementById('up-title').value;
+      const location = document.getElementById('up-loc').value;
+      const category = document.getElementById('up-category').value;
+      const exif = document.getElementById('up-exif').value || "50mm • f/1.4 • 1/500s • ISO 100";
+      const desc = document.getElementById('up-desc').value || "Curated RAW darkroom submission.";
+
+      const newPhoto = {
+        id: "p_" + Date.now(),
+        title: title,
+        author: appState.currentRole === 'Curator' ? "Elias Thorne" : "Guest Photographer",
+        authorRole: appState.currentRole,
+        avatar: "placeholder",
+        avatarAlt: "Photographer profile avatar in darkroom lighting.",
+        image: "placeholder",
+        imageAlt: desc + " Captured in high dynamic range under the darkroom aesthetic.",
+        location: location,
+        category: category,
+        likes: 1,
+        liked: false,
+        shutter: exif.split('•')[2]?.trim() || "1/500s",
+        aperture: exif.split('•')[1]?.trim() || "f/2.8",
+        iso: exif.split('•')[3]?.trim() || "ISO 100",
+        lens: exif.split('•')[0]?.trim() || "Leica 50mm Summilux",
+        status: appState.currentRole === 'Curator' ? 'approved' : 'pending',
+        comments: []
+      };
+
+      appState.photos.unshift(newPhoto);
+      saveState();
+
+      closeUploadModal();
+      renderGallery();
+      renderAdminConsole();
+      alert(`Exposure "${title}" successfully ingested! Status: ${newPhoto.status.toUpperCase()}`);
+    }
+
+    /* ========================================================= */
+    /* 7. WEEKLY LEADERBOARD CONTROLLER                          */
+    /* ========================================================= */
+    function switchLeaderboardTab(tab) {
+      appState.activeLeaderboardTab = tab;
+      const btnPhotos = document.getElementById('lb-tab-photos');
+      const btnPhotogs = document.getElementById('lb-tab-photographers');
+
+      if (tab === 'photos') {
+        btnPhotos.className = "px-5 py-2 rounded-lg font-label-caps text-label-caps bg-primary-container text-surface-container-lowest font-medium transition-all";
+        btnPhotogs.className = "px-5 py-2 rounded-lg font-label-caps text-label-caps text-outline hover:text-on-surface transition-all";
+      } else {
+        btnPhotogs.className = "px-5 py-2 rounded-lg font-label-caps text-label-caps bg-primary-container text-surface-container-lowest font-medium transition-all";
+        btnPhotos.className = "px-5 py-2 rounded-lg font-label-caps text-label-caps text-outline hover:text-on-surface transition-all";
+      }
+      renderLeaderboard();
+    }
+
+    function renderLeaderboard() {
+      const container = document.getElementById('lb-content-area');
+      if (!container) return;
+
+      if (appState.activeLeaderboardTab === 'photos') {
+        // Sort top 10 photos
+        const sorted = [...appState.photos]
+          .filter(p => p.status === 'approved')
+          .sort((a, b) => b.likes - a.likes)
+          .slice(0, 10);
+
+        container.innerHTML = `
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-outline-variant/30 bg-surface-container-low/60 text-outline font-label-caps text-label-caps text-[11px]">
+                  <th class="py-4 px-6 w-16">RANK</th>
+                  <th class="py-4 px-4">EXPOSURE TITLE</th>
+                  <th class="py-4 px-4">CREATOR</th>
+                  <th class="py-4 px-4">OPTICAL CATEGORY</th>
+                  <th class="py-4 px-4">LENS TELEMETRY</th>
+                  <th class="py-4 px-6 text-right">LUMINANCE (LIKES)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-outline-variant/20 font-body-sm text-body-sm">
+                ${sorted.map((item, idx) => {
+                  let badge = `<span class="font-stat-md font-bold text-outline">#0${idx + 1}</span>`;
+                  let rowBloom = "";
+                  if (idx === 0) {
+                    badge = `<span class="w-8 h-8 rounded-full bg-secondary-container/20 border border-secondary text-secondary flex items-center justify-center font-stat-md font-bold shadow-[0_0_14px_rgba(245,158,11,0.4)]">01</span>`;
+                    rowBloom = "bg-secondary-container/5";
+                  } else if (idx === 1) {
+                    badge = `<span class="w-8 h-8 rounded-full bg-surface-variant border border-outline text-on-surface flex items-center justify-center font-stat-md font-bold">02</span>`;
+                  } else if (idx === 2) {
+                    badge = `<span class="w-8 h-8 rounded-full bg-tertiary-container/20 border border-tertiary text-tertiary flex items-center justify-center font-stat-md font-bold">03</span>`;
+                  }
+
+                  return `
+                    <tr class="hover:bg-surface-container-high/40 transition-colors ${rowBloom}">
+                      <td class="py-4 px-6">${badge}</td>
+                      <td class="py-4 px-4">
+                        <div class="flex items-center gap-3">
+                          <img src="${item.image}" data-alt="${item.imageAlt}" class="w-12 h-9 rounded object-cover border border-outline-variant/30">
+                          <div>
+                            <span class="font-body-md font-semibold text-on-surface block hover:text-primary cursor-pointer" onclick="openLightbox('${item.id}')">${item.title}</span>
+                            <span class="font-label-caps text-label-caps text-outline text-[10px]">${item.location}</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="py-4 px-4 text-on-surface-variant font-medium">${item.author}</td>
+                      <td class="py-4 px-4">
+                        <span class="px-2 py-0.5 rounded bg-surface-container font-label-caps text-label-caps text-primary text-[10px] border border-primary/20">${item.category}</span>
+                      </td>
+                      <td class="py-4 px-4 font-stat-md text-xs text-outline">${item.lens}</td>
+                      <td class="py-4 px-6 text-right font-stat-md text-secondary font-bold">${item.likes.toLocaleString()}</td>
+                    </tr>
+                  `;
+                }).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+      } else {
+        // Photographers
+        const usersSorted = [...appState.users].sort((a, b) => b.rep - a.rep);
+        container.innerHTML = `
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+            ${usersSorted.map((u, i) => `
+              <div class="glass-frosted p-6 rounded-2xl border ${i === 0 ? 'border-secondary gold-bloom' : 'border-outline-variant/30'} flex flex-col justify-between">
+                <div>
+                  <div class="flex justify-between items-start mb-4">
+                    <span class="font-stat-md font-bold ${i === 0 ? 'text-secondary' : 'text-outline'}">RANK 0${i + 1}</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container font-label-caps text-label-caps text-primary text-[10px] border border-primary/20">${u.role.toUpperCase()}</span>
+                  </div>
+                  <h4 class="font-headline-sm text-lg text-on-surface font-semibold">${u.name}</h4>
+                  <p class="font-label-caps text-label-caps text-outline text-[11px]">${u.handle}</p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-outline-variant/20 flex justify-between items-center">
+                  <div>
+                    <span class="font-label-caps text-label-caps text-outline block text-[9px]">INGESTED ASSETS</span>
+                    <span class="font-stat-md text-on-surface font-semibold">${u.photosCount} EXPOSURES</span>
+                  </div>
+                  <div class="text-right">
+                    <span class="font-label-caps text-label-caps text-outline block text-[9px]">INDEX SCORE</span>
+                    <span class="font-stat-md text-secondary font-bold text-lg">${u.rep} / 100</span>
+                  </div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      }
+    }
+
+    // Countdown Timer Loop
+    let countdownSecs = 3 * 86400 + 14 * 3600 + 22 * 60 + 18;
+    setInterval(() => {
+      countdownSecs--;
+      if (countdownSecs < 0) countdownSecs = 7 * 86400;
+      const d = Math.floor(countdownSecs / 86400);
+      const h = Math.floor((countdownSecs % 86400) / 3600);
+      const m = Math.floor((countdownSecs % 3600) / 60);
+      const s = countdownSecs % 60;
+      const el = document.getElementById('lb-timer');
+      if (el) el.textContent = `${d}d ${h}h ${m}m ${s}s`;
+    }, 1000);
+
+    /* ========================================================= */
+    /* 8. ADMIN CONSOLE & MODERATION PIPELINE                    */
+    /* ========================================================= */
+    let currentAdminFilter = 'all';
+
+    function renderAdminConsole() {
+      // Pending Count
+      const pendingList = appState.photos.filter(p => p.status === 'pending');
+      const countEl = document.getElementById('stat-pending-count');
+      if (countEl) countEl.textContent = pendingList.length;
+
+      // Render Table
+      const tbody = document.getElementById('admin-queue-tbody');
+      if (!tbody) return;
+
+      let queue = appState.photos;
+      if (currentAdminFilter === 'pending') {
+        queue = queue.filter(p => p.status === 'pending');
+      }
+
+      if (queue.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" class="py-8 text-center text-outline">Queue is pristine. No photographic items require review.</td></tr>`;
+      } else {
+        tbody.innerHTML = queue.map(item => `
+          <tr class="hover:bg-surface-container-high/30 transition-colors">
+            <td class="py-4 px-6">
+              <div class="flex items-center gap-3">
+                <img src="${item.image}" data-alt="${item.imageAlt}" class="w-14 h-10 rounded object-cover border border-outline-variant/30">
+                <div>
+                  <span class="font-stat-md text-xs text-primary block">${item.lens}</span>
+                  <span class="font-stat-md text-[10px] text-outline">${item.shutter} • ${item.aperture} • ${item.iso}</span>
+                </div>
+              </div>
+            </td>
+            <td class="py-4 px-4">
+              <span class="font-body-md font-semibold text-on-surface block">${item.title}</span>
+              <span class="font-label-caps text-label-caps text-outline text-[10px]">${item.location} • ${item.category}</span>
+            </td>
+            <td class="py-4 px-4 text-on-surface-variant">${item.author}</td>
+            <td class="py-4 px-4">
+              <span class="px-2.5 py-1 rounded font-label-caps text-label-caps text-[10px] ${
+                item.status === 'approved' ? 'bg-emerald-950 text-emerald-400 border border-emerald-500/30' :
+                item.status === 'rejected' ? 'bg-error-container/30 text-error border border-error/30' :
+                'bg-tertiary-container/20 text-tertiary border border-tertiary/30 animate-pulse'
+              }">
+                ${item.status.toUpperCase()}
+              </span>
+            </td>
+            <td class="py-4 px-6 text-right">
+              <div class="flex items-center justify-end gap-2">
+                <button onclick="setPhotoStatus('${item.id}', 'approved')" class="px-2.5 py-1 rounded bg-emerald-950 hover:bg-emerald-900 text-emerald-300 font-label-caps text-label-caps text-[10px] transition-colors border border-emerald-500/40">
+                  APPROVE
+                </button>
+                <button onclick="setPhotoStatus('${item.id}', 'rejected')" class="px-2.5 py-1 rounded bg-error-container/40 hover:bg-error-container text-error font-label-caps text-label-caps text-[10px] transition-colors border border-error/40">
+                  REJECT
+                </button>
+                <button onclick="deletePhoto('${item.id}')" class="p-1 rounded text-outline hover:text-error transition-colors" title="Delete record">
+                  <span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+                </button>
+              </div>
+            </td>
+          </tr>
+        `).join('');
+      }
+
+      // Render Category Tags
+      const tagsList = document.getElementById('admin-tags-list');
+      if (tagsList) {
+        tagsList.innerHTML = appState.categories.map((cat, idx) => `
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container text-on-surface font-label-caps text-label-caps text-[11px] border border-outline-variant/30">
+            <span>${cat}</span>
+            <button onclick="removeCategoryTag(${idx})" class="text-outline hover:text-error text-xs">×</button>
+          </span>
+        `).join('');
+      }
+
+      // Render Users Management Grid
+      renderAdminUsersList();
+    }
+
+    function setPhotoStatus(photoId, newStatus) {
+      const p = appState.photos.find(x => x.id === photoId);
+      if (p) {
+        p.status = newStatus;
+        saveState();
+        renderAdminConsole();
+        renderGallery();
+      }
+    }
+
+    function deletePhoto(photoId) {
+      if (!confirm("Confirm complete expungement of photographic asset from telemetry index?")) return;
+      appState.photos = appState.photos.filter(x => x.id !== photoId);
+      saveState();
+      renderAdminConsole();
+      renderGallery();
+    }
+
+    function filterQueue(status) {
+      currentAdminFilter = status;
+      renderAdminConsole();
+    }
+
+    function refreshAdminQueue() {
+      renderAdminConsole();
+    }
+
+    function addNewCategoryTag() {
+      const input = document.getElementById('new-tag-input');
+      const val = input.value.trim();
+      if (!val) return;
+      if (!appState.categories.includes(val)) {
+        appState.categories.push(val);
+        saveState();
+      }
+      input.value = '';
+      renderAdminConsole();
+    }
+
+    function removeCategoryTag(index) {
+      appState.categories.splice(index, 1);
+      saveState();
+      renderAdminConsole();
+    }
+
+    function renderAdminUsersList(filter = '') {
+      const grid = document.getElementById('users-mgmt-grid');
+      if (!grid) return;
+
+      const filtered = appState.users.filter(u => 
+        u.name.toLowerCase().includes(filter) || u.handle.toLowerCase().includes(filter)
+      );
+
+      grid.innerHTML = filtered.map(u => `
+        <div class="p-4 rounded-xl bg-surface-container border border-outline-variant/30 flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-body-md font-semibold text-on-surface text-sm">${u.name}</span>
+              ${u.banned ? '<span class="text-[9px] px-1.5 py-0.5 rounded bg-error-container text-error font-mono">BANNED</span>' : ''}
+            </div>
+            <span class="font-label-caps text-label-caps text-outline text-[10px]">${u.handle} • ${u.role}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="toggleUserAdminRole('${u.id}')" class="px-2 py-1 rounded border border-outline-variant/40 hover:border-primary text-outline hover:text-primary font-label-caps text-label-caps text-[10px]">
+              ${u.role === 'Curator' ? 'REVOKE' : 'MAKE CURATOR'}
+            </button>
+            <button onclick="toggleUserBan('${u.id}')" class="px-2 py-1 rounded ${u.banned ? 'bg-emerald-950 text-emerald-400' : 'bg-error-container/40 text-error'} font-label-caps text-label-caps text-[10px]">
+              ${u.banned ? 'UNBAN' : 'BAN'}
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function searchUsers(val) {
+      renderAdminUsersList(val.toLowerCase().trim());
+    }
+
+    function toggleUserAdminRole(userId) {
+      const u = appState.users.find(x => x.id === userId);
+      if (u) {
+        u.role = u.role === 'Curator' ? 'Photographer' : 'Curator';
+        saveState();
+        renderAdminConsole();
+      }
+    }
+
+    function toggleUserBan(userId) {
+      const u = appState.users.find(x => x.id === userId);
+      if (u) {
+        u.banned = !u.banned;
+        saveState();
+        renderAdminConsole();
+      }
+    }
+
+    /* ========================================================= */
+    /* 9. AUTH VIEW & ROLES CONTROLLER                           */
+    /* ========================================================= */
+    let currentAuthMode = 'login';
+
+    function toggleAuthTab(mode) {
+      currentAuthMode = mode;
+      const tLogin = document.getElementById('auth-tab-login');
+      const tRegister = document.getElementById('auth-tab-register');
+      const nameGroup = document.getElementById('auth-fullname-group');
+      const submitBtn = document.getElementById('auth-submit-btn');
+
+      if (mode === 'login') {
+        tLogin.className = "flex-1 pb-3 border-b-2 border-primary text-primary font-semibold transition-all";
+        tRegister.className = "flex-1 pb-3 text-outline hover:text-on-surface transition-all";
+        nameGroup.classList.add('hidden');
+        submitBtn.textContent = "AUTHENTICATE SESSION";
+      } else {
+        tRegister.className = "flex-1 pb-3 border-b-2 border-primary text-primary font-semibold transition-all";
+        tLogin.className = "flex-1 pb-3 text-outline hover:text-on-surface transition-all";
+        nameGroup.classList.remove('hidden');
+        submitBtn.textContent = "REGISTER LENS PROFILE";
+      }
+    }
+
+    function handleAuthSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('auth-email').value;
+      alert(`Darkroom session authenticated for: ${email}`);
+      switchView('gallery');
+    }
+
+    function demoLogin(role) {
+      if (role === 'admin') {
+        appState.currentRole = 'Curator';
+        document.getElementById('current-role-label').textContent = 'Curator';
+        document.getElementById('auth-email').value = "curator@lumen.lens";
+        switchView('admin');
+      } else {
+        appState.currentRole = 'Photographer';
+        document.getElementById('current-role-label').textContent = 'Photographer';
+        document.getElementById('auth-email').value = "photographer@lumen.lens";
+        switchView('gallery');
+      }
+      saveState();
+    }
+
+    /* ========================================================= */
+    /* 10. INITIALIZATION LIFECYCLE                              */
+    /* ========================================================= */
+    window.addEventListener('DOMContentLoaded', () => {
+      // Sync UI with saved role
+      const roleLabel = document.getElementById('current-role-label');
+      if (roleLabel) roleLabel.textContent = appState.currentRole;
+
+      // Render main gallery
+      renderGallery();
+
+      // Initialize Hero MosaicBloom Engine
+      initHeroMosaicEngine();
+    });
+
+  </script>
+
+
+</body></html>
